@@ -7,6 +7,6 @@
 
 > CHANGE  4 : 5  @  4 : 5
 
-~ 		return "eagler";
+~ 		return "vanilla";
 
 > EOF
