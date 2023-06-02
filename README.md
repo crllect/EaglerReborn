@@ -1,4 +1,4 @@
-# EaglercraftX 1.8
+# Eagler Reborn
 
 ### Play real Minecraft 1.8 in your browser, currently only supports multiplayer
 
