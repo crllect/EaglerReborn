@@ -11,7 +11,7 @@ public class EaglercraftVersion {
 	public static final String projectForkVersion = "u17";
 	public static final String projectForkVendor = "lax1dude";
 	
-	public static final String projectForkURL = "https://gitlab.com/lax1dude/eaglercraftx-1.8";
+	public static final String projectForkURL = "https://github.com/EaglerReborn/EaglerReborn";
 	
 	//////////////////////////////////////////////////////////////////////
 	
@@ -31,8 +31,7 @@ public class EaglercraftVersion {
 	// Miscellaneous variables:
 
 	public static final String mainMenuStringA = "Minecraft 1.8.8";
-	public static final String mainMenuStringB = projectOriginName + " " +
-			projectOriginRevision + "-" + projectOriginVersion;
+	public static final String mainMenuStringB = "Eagler Reborn INDEV";
 	public static final String mainMenuStringC = null;
 	public static final String mainMenuStringD = "Resources Copyright Mojang AB";
 
