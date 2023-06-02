@@ -231,7 +231,7 @@
 
 > CHANGE  16 : 17  @  16 : 24
 
-~ 		throw new UnsupportedOperationException("wtf u trying to twitch stream in a browser game?");
+~ 		throw new UnsupportedOperationException("bro imagine trying to stream eaglercraft on twitch couldnt be me");
 
 > CHANGE  2 : 5  @  2 : 24
 
@@ -489,7 +489,7 @@
 
 > CHANGE  5 : 6  @  5 : 54
 
-~ 		throw new UnsupportedOperationException("singleplayer has been removed");
+~ 		throw new UnsupportedOperationException("singleplayer has been removed for DMCA reasons");
 
 > INSERT  12 : 13  @  12
 
@@ -516,7 +516,7 @@
 
 > CHANGE  2 : 3  @  2 : 6
 
-~ 				return "Definitely Not; You're an eagler";
+~ 				return "well no not in the traditional sense";
 
 > DELETE  36  @  36 : 41
 
