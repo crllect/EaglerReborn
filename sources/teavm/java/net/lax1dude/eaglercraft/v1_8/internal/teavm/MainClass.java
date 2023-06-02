@@ -49,12 +49,12 @@ public class MainClass {
 		PrintStream systemOut = System.out;
 		PrintStream systemErr = System.err;
 		try {
-			systemOut.println("MainClass: [INFO] eaglercraftx is starting...");
+			systemOut.println("MainClass: [INFO] eagler reborn is starting...");
 			String opts = getEaglerXOpts();
 			
 			if(opts == null) {
 				systemErr.println("MainClass: [ERROR] the \"window.eaglercraftXOpts\" variable is undefined");
-				systemErr.println("MainClass: [ERROR] eaglercraftx cannot start");
+				systemErr.println("MainClass: [ERROR] eagler reborn cannot start");
 				Window.alert("ERROR: game cannot start, the \"window.eaglercraftXOpts\" variable is undefined");
 				return;
 			}
@@ -132,7 +132,7 @@ public class MainClass {
 				
 			});
 			
-			systemOut.println("MainClass: [INFO] initializing eaglercraftx runtime");
+			systemOut.println("MainClass: [INFO] initializing ea runtime");
 			
 			try {
 				EagRuntime.create();
@@ -148,7 +148,7 @@ public class MainClass {
 				systemErr.println("MainClass: [ERROR] eaglercraftx's runtime could not be initialized!");
 				EagRuntime.debugPrintStackTraceToSTDERR(t);
 				showCrashScreen("EaglercraftX's runtime could not be initialized!", t);
-				systemErr.println("MainClass: [ERROR] eaglercraftx cannot start");
+				systemErr.println("MainClass: [ERROR] eagler reborn cannot start");
 				return;
 			}
 
@@ -229,7 +229,7 @@ public class MainClass {
 			HTMLElement el = doc.getElementById(configRootElement);
 
 			StringBuilder str = new StringBuilder();
-			str.append("Game Crashed! I have fallen and I can't get up!\n\n");
+			str.append("Game Crashed!\n\n");
 			str.append(t);
 			str.append('\n').append('\n');
 			str.append("eaglercraft.version = \"").append(EaglercraftVersion.projectForkVersion).append("\"\n");
