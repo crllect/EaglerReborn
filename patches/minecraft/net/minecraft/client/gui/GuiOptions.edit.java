@@ -22,7 +22,7 @@
 > CHANGE  46 : 48  @  46 : 48
 
 ~ 		this.buttonList.add(notSoSuperSecret = new GuiButton(8675309, this.width / 2 + 5, this.height / 6 + 48 - 6, 150,
-~ 				20, "Super Secret Settings...") {
+~ 				20, "Network Settings") {
 
 > CHANGE  13 : 16  @  13 : 15
 
@@ -55,7 +55,7 @@
 
 > CHANGE  32 : 33  @  32 : 33
 
-~ 				notSoSuperSecret.displayString = "Nope!";
+~ 				notSoSuperSecret.displayString = "Placeholder!";
 
 > DELETE  22  @  22 : 27
 
