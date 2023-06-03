@@ -1,4 +1,4 @@
-# Eagler Reborn | Eaglercraft service allowing to connect to Java Minecraft servers.
+# Eagler Reborn | Eaglercraft client allowing to connect to Java Minecraft servers.
 
 ### Play real Minecraft 1.8 in your browser, currently only supports multiplayer
 
