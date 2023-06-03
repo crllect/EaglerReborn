@@ -2,7 +2,7 @@
 
 ### Play real Minecraft 1.8 in your browser, currently only supports multiplayer
 
-![EaglercraftX 1.8 Screenshot Main Menu](https://media.discordapp.net/attachments/1042594789943689327/1080697078583394355/eaglerx-480p.png)
+![Eagler Reborn Title Screen](https://github.com/EaglerReborn/EaglerReborn/assets/134523836/3ff13a58-96dc-4200-bdbf-89a0db647d2d)
 ---
 
 ### This repository contains:
