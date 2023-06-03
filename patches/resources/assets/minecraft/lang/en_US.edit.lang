@@ -35,8 +35,8 @@
 + eaglercraft.editProfile.addSkin=Add Skin
 + eaglercraft.editProfile.clearSkin=Clear List
 + 
-+ eaglercraft.addServer.SSLWarn1=you are on an https: page!
-+ eaglercraft.addServer.SSLWarn2=html5 will only allow wss://
++ eaglercraft.addServer.SSLWarn1=html5 does not support TCP!
++ eaglercraft.addServer.SSLWarn2=make sure you have a websockify instance setup!
 + 
 + eaglercraft.chat.exit=Exit Chat
 + 
