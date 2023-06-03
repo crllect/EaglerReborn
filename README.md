@@ -1,4 +1,4 @@
-# Eagler Reborn
+# Eagler Reborn | Eaglercraft service allowing to connect to Java Minecraft servers.
 
 ### Play real Minecraft 1.8 in your browser, currently only supports multiplayer
 
@@ -12,6 +12,7 @@
  - **Patch files to mod the Minecraft 1.8 source code to make it browser compatible**
  - **Browser-modified portions of Minecraft 1.8's open-source dependencies**
  - **Plugins for Minecraft servers to allow the eagler client to connect to them**
+ - **Hooks to ViaMCP to allow joining of regular servers**
 
 ### This repository does NOT contain:
 
