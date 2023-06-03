@@ -159,7 +159,7 @@ public class EaglercraftNetworkManager {
 				processReceivedPackets(); // catch kick message
 			} catch (IOException e) {
 			}
-			doClientDisconnect(new ChatComponentTranslation("disconnect.endOfStream"));
+			doClientDisconnect(new ChatComponentTranslation("disconnect.lost"));
 			return true;
 		}else {
 			return false;
