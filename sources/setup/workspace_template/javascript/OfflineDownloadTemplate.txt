@@ -4,11 +4,10 @@
 
 <!--
 
-This file is from ${date}, there is no official eagler download link anymore, check the websites and discords of your favorite eagler servers for new versions
+This file is from ${date}, there isn't an official download link bc of DMCA stuff so you will need to compile it yourself.
 
-Be aware that some server owners are lazy and do not update their client regularly
 
-Compile it yourself here: https://gitlab.com/lax1dude/eaglercraftx-1.8/
+Compile it yourself here: https://github.com/EaglerReborn/EaglerReborn
 
 -->
 
@@ -30,10 +29,10 @@ Compile it yourself here: https://gitlab.com/lax1dude/eaglercraftx-1.8/
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="EaglercraftX 1.8 Offline" />
 <meta name="keywords" content="eaglercraft, eaglercraftx, minecraft, 1.8, 1.8.8" />
-<title>EaglercraftX 1.8</title>
+<title>Eagler Reborn</title>
 <meta property="og:locale" content="en-US" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="EaglercraftX 1.8 Offline" />
+<meta property="og:title" content="Eagler Reborn Offline" />
 <meta property="og:description" content="this file is not a website, whoever uploaded it to this URL is a dumbass" />
 <script type="text/javascript">
 "use strict";
@@ -84,4 +83,4 @@ window.addEventListener("load", () => {
 </body>
 </html>
 
-<!--  lax1dude was here  -->
+<!--  otterdev was here  -->
