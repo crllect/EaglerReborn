@@ -1,2 +1,5 @@
 package me.otterdev.eaglerreborn;
-public static final boolean legacyMode = true;
+/**
+ *this doesnt work rn so whatever u do dont set it to no
+*/
+public static final String legacyMode = "yes";
