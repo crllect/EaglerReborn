@@ -31,6 +31,7 @@ net/minecraft/command/CommandExecuteAt.java
 net/minecraft/network/NetHandlerPlayServer.java
 net/minecraft/world/gen/feature/WorldGenWaterlily.java
 net/minecraft/entity/ai/EntityAIMoveThroughVillage.java
+net/minecraft/network/NetworkManager.java
 net/minecraft/client/renderer/GlStateManager.java
 net/minecraft/world/gen/feature/WorldGenTaiga1.java
 net/minecraft/entity/ai/EntityAICreeperSwell.java
