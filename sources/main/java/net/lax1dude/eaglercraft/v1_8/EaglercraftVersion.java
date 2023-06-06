@@ -31,7 +31,7 @@ public class EaglercraftVersion {
 	// Miscellaneous variables:
 
 	public static final String mainMenuStringA = "Minecraft 1.8.8";
-	public static final String mainMenuStringB = "Eagler Reborn INDEV";
+	public static final String mainMenuStringB = "Eagler Reborn INDEV 2";
 	public static final String mainMenuStringC = null;
 	public static final String mainMenuStringD = "Resources Copyright Mojang AB";
 
