@@ -12,7 +12,6 @@ import net.minecraft.network.EnumConnectionState;
 import net.minecraft.network.EnumPacketDirection;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
-import me.otterdev.eaglerreborn.NetworkSettings;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
@@ -41,16 +40,12 @@ public class EaglercraftNetworkManager {
 	public static final Logger logger = LogManager.getLogger("NetworkManager");
 
 	public EaglercraftNetworkManager(String address) {
-		if(NetworkSettings.legacyMode == "yes") {
-			this.address = address;
-			this.temporaryBuffer = new PacketBuffer(Unpooled.buffer(0x1FFFF));
-		}
+		this.address = address;
+		this.temporaryBuffer = new PacketBuffer(Unpooled.buffer(0x1FFFF));
 	}
 	
 	public void connect() {
-		if(NetworkSettings.legacyMode == "yes") {
-			PlatformNetworking.startPlayConnection(address);
-		}
+		PlatformNetworking.startPlayConnection(address);
 	}
 	
 	public EnumEaglerConnectionState getConnectStatus() {
@@ -164,7 +159,7 @@ public class EaglercraftNetworkManager {
 				processReceivedPackets(); // catch kick message
 			} catch (IOException e) {
 			}
-			doClientDisconnect(new ChatComponentTranslation("disconnect.lost"));
+			doClientDisconnect(new ChatComponentTranslation("disconnect.endOfStream"));
 			return true;
 		}else {
 			return false;
