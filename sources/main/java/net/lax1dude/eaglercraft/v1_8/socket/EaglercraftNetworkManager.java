@@ -12,6 +12,7 @@ import net.minecraft.network.EnumConnectionState;
 import net.minecraft.network.EnumPacketDirection;
 import net.minecraft.network.INetHandler;
 import net.minecraft.network.Packet;
+import me.otterdev.eaglerreborn.NetworkSettings;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.IChatComponent;
@@ -40,12 +41,16 @@ public class EaglercraftNetworkManager {
 	public static final Logger logger = LogManager.getLogger("NetworkManager");
 
 	public EaglercraftNetworkManager(String address) {
-		this.address = address;
-		this.temporaryBuffer = new PacketBuffer(Unpooled.buffer(0x1FFFF));
+		if(NetworkSettings.legacyMode == "yes") {
+			this.address = address;
+			this.temporaryBuffer = new PacketBuffer(Unpooled.buffer(0x1FFFF));
+		}
 	}
 	
 	public void connect() {
-		PlatformNetworking.startPlayConnection(address);
+		if(NetworkSettings.legacyMode == "yes") {
+			PlatformNetworking.startPlayConnection(address);
+		}
 	}
 	
 	public EnumEaglerConnectionState getConnectStatus() {
