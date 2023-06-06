@@ -14,7 +14,6 @@ net/minecraft/client/stream/Metadata.java
 net/minecraft/village/Village.java
 net/minecraft/village/VillageSiege.java
 net/minecraft/entity/ai/EntityAITradePlayer.java
-net/minecraft/network/NetworkManager.java
 net/minecraft/world/gen/MapGenCaves.java
 net/minecraft/command/CommandTrigger.java
 net/minecraft/world/gen/feature/WorldGenIcePath.java
