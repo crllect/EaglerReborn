@@ -38,3 +38,9 @@
 6. Follow the steps shown to you in the new window to finish compiling
 7. (real!)
 
+
+## Joining Non-Eagler servers
+
+
+To join non eagler servers on the client, just do not include `wss://` in the server address. If you include `wss://`, the client will assume its an eagler server.
+
