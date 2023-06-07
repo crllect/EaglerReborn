@@ -53,3 +53,6 @@ To join non eagler servers on the client, just do not include `wss://` in the se
 
 Just click the "Run on replit" button to make a relay.
 make sure to set it to "blank repl" 
+run the repl, then wait a bit.
+once u see the webview, ur done.
+take the link in the webview and replace `https://` with `wss://`. then, fork this repo and go to `sources/main/java/me/otterdev/eaglerreborn/NetworkSettings.java`. take the `wss://` link u made earlier and paste that in where `wss://reborn-relay.ottterdev.repl.co` is.
