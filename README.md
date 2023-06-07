@@ -11,7 +11,6 @@
  - **Source code to provide the LWJGL keyboard, mouse, and OpenGL APIs in a browser**
  - **Patch files to mod the Minecraft 1.8 source code to make it browser compatible**
  - **Browser-modified portions of Minecraft 1.8's open-source dependencies**
- - **ViaMCP code to allow joining of modern servers**
 
 ### This repository does NOT contain:
 
