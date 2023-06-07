@@ -37,4 +37,5 @@
 4. Type `chmod +x CompileLatestClient.sh` and hit enter
 5. Type `./CompileLatestClient.sh` and hit enter, a GUI resembling a classic windows installer should open
 6. Follow the steps shown to you in the new window to finish compiling
+7. (real!)
 
