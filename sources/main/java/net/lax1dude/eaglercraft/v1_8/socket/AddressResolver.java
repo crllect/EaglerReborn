@@ -28,9 +28,9 @@ public class AddressResolver {
 		String lc = input.toLowerCase();
 		if(!lc.startsWith("ws://") && !lc.startsWith("wss://")) {
 			if(EagRuntime.requireSSL()) {
-				input = NetworkSettings.defaultRelay + "/" + input + "._of";
+				input = NetworkSettings.defaultRelay + "/" + input + "._oA";
 			}else {
-				input = NetworkSettings.defaultRelay + "/" + input + "._of";
+				input = NetworkSettings.defaultRelay + "/" + input + "._oA";
 			}
 		}
 		return input;
