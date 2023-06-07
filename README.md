@@ -2,7 +2,7 @@
 
 ### Play real Minecraft 1.8 in your browser, currently only supports multiplayer
 
-![Eagler Reborn Title Screen](https://github.com/EaglerReborn/EaglerReborn/assets/134523836/9581219c-115e-4bd1-81b3-a060f849c6b4)
+![Eagler Reborn Title Screen](https://github.com/EaglerReborn/EaglerReborn/assets/134523836/9581219c-115e-4bd1-81b3-a060f849c6b4) <!-- damn i can't believe i got a "It's here!" splash that wasn't even intentional -->
 ---
 
 ### This repository contains:
