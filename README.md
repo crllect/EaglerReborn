@@ -44,3 +44,12 @@
 
 To join non eagler servers on the client, just do not include `wss://` in the server address. If you include `wss://`, the client will assume its an eagler server.
 
+
+### Setting up a relay
+
+
+[![image](https://github.com/EaglerReborn/EaglerReborn/assets/134523836/d9663821-5892-4c88-8074-3709715d09f1)](https://replit.com/github/EaglerReborn/relay)
+
+
+Just click the "Run on replit" button to make a relay.
+make sure to set it to "blank repl" 
