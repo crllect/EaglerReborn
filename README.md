@@ -54,7 +54,7 @@ If the server has both Java and Eagler support, you should definitely use Eagler
 ### Setting up a relay
 
 
-[![image](https://github.com/EaglerReborn/EaglerReborn/assets/134523836/d9663821-5892-4c88-8074-3709715d09f1)](https://replit.com/github/EaglerReborn/relay)
+[![Run on Repl.it](https://github.com/EaglerReborn/EaglerReborn/assets/134523836/d9663821-5892-4c88-8074-3709715d09f1)](https://replit.com/new/github/EaglerReborn/relay)
 
 
 Just click the "Run on replit" button to make a relay.
