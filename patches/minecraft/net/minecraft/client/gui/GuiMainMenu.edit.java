@@ -149,9 +149,9 @@
 
 > CHANGE  6 : 10  @  6 : 9
 
-~ 		// this.buttonList
-~ 		// .add(new GuiButton(1, this.width / 2 - 100, parInt1,
-~ 		// I18n.format("menu.singleplayer", new Object[0])));
+~ 		this.buttonList
+~ 		.add(new GuiButton(1, this.width / 2 - 100, parInt1,
+~ 		I18n.format("menu.playdemo", new Object[0])));
 ~ 		this.buttonList.add(new GuiButton(2, this.width / 2 - 100, parInt1 + parInt2 * 0,
 
 > CHANGE  1 : 5  @  1 : 3
@@ -167,7 +167,7 @@
 
 > CHANGE  9 : 10  @  9 : 10
 
-~ 			logger.error("Singleplayer was removed dumbass");
+~ 			logger.error("still a WIP dumbass");
 
 > DELETE  6  @  6 : 10
 
