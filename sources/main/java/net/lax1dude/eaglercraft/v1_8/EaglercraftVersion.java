@@ -32,7 +32,7 @@ public class EaglercraftVersion {
 
 	public static final String mainMenuStringA = "Minecraft 1.8.8";
 	public static final String mainMenuStringB = "Eagler Reborn INDEV 2";
-	public static final String mainMenuStringC = null;
+	public static final String mainMenuStringC = "made by otterdev";
 	public static final String mainMenuStringD = "Resources Copyright Mojang AB";
 
 	public static final String mainMenuStringE = projectForkName + " " + projectForkVersion;
