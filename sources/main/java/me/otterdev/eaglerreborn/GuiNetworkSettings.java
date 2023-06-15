@@ -19,6 +19,8 @@ public class GuiNetworkSettings extends GuiScreen {
         private int selectedSlot = 0;
         private int mousex = 0;
 	private int mousey = 0;
+	private boolean dropDownOpen = false;
+	private String[] dropDownOptions;
         protected String screenTitle = "Network Settings";
         public GuiNetworkSettings(GuiScreen parent) {
 		this.parent = parent;
@@ -67,9 +69,9 @@ public class GuiNetworkSettings extends GuiScreen {
 		Keyboard.enableRepeatEvents(false);
 	}
         protected void keyTyped(char c, int k) {
-		usernameField.textboxKeyTyped(c, k);
+		relayField.textboxKeyTyped(c, k);
 		
-		String text = usernameField.getText();
+		String text = relayField.getText();
                 if(k == 200 && selectedSlot > 0) {
 			--selectedSlot;
 			scrollPos = selectedSlot - 2;
@@ -81,7 +83,7 @@ public class GuiNetworkSettings extends GuiScreen {
 	}
         protected void mouseClicked(int mx, int my, int button) {
 		super.mouseClicked(mx, my, button);
-		usernameField.mouseClicked(mx, my, button);
+		relayField.mouseClicked(mx, my, button);
         }
 
 }
