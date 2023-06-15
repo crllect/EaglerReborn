@@ -36,23 +36,11 @@ public class GuiNetworkSettings extends GuiScreen {
 	
 	byte[] relayStorage = EagRuntime.getStorage("r");
 	
-	if (relayStorage == null) {
-		bonk = "yes";
-	}
 	NBTTagCompound relay;
-	try {
-		relay = CompressedStreamTools.readCompressed(new EaglerInputStream(relayStorage));
-	}catch(IOException ex) {
-		bonk = "yessir";
-	}
+	relay = CompressedStreamTools.readCompressed(new EaglerInputStream(relayStorage));
 
-	if (relay == null || relay.hasNoTags()) {
-		bonk = "ultra yessir";
-	}
 	String loadRelay = relay.getString("relay");
-	if(loadRelay.isEmpty()) {
-		relaything = NetworkSettings.defaultRelay;
-	}
+	
         public GuiNetworkSettings(GuiScreen parent) {
 		this.parent = parent;
 	}
@@ -99,6 +87,9 @@ public class GuiNetworkSettings extends GuiScreen {
                 relayField.updateCursorCounter();
         }
         public void onGuiClosed() {
+		if(loadRelay.isEmpty()) {
+		relaything = NetworkSettings.defaultRelay;
+		}
 		String name = relayField.getText();
 		NBTTagCompound relay = new NBTTagCompound();
 		relay.setString("relayurl", name);
@@ -110,6 +101,7 @@ public class GuiNetworkSettings extends GuiScreen {
 		}
 		EagRuntime.setStorage("r", bao.toByteArray());
 		Keyboard.enableRepeatEvents(false);
+		
 	}
         protected void keyTyped(char c, int k) {
 		relayField.textboxKeyTyped(c, k);
