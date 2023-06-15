@@ -49,14 +49,14 @@ public class GuiNetworkSettings extends GuiScreen {
 		if (relay == null || relay.hasNoTags()) {
 			return;
 		}
-		String loadRelay = relay.getString("relay")
+		String loadRelay = relay.getString("relay");
 		if(loadRelay.isEmpty()) {
 			relaything = NetworkSettings.defaultRelay;
 		}
 		Keyboard.enableRepeatEvents(true);
                 relayField = new GuiTextField(0, fontRendererObj, width / 2 - 20 + 1, height / 6 + 24 + 1, 138, 20);
 		relayField.setFocused(true);
-		usernameField.setText(relaything)
+		relayField.setText(relaything);
 
         }
 
@@ -95,7 +95,7 @@ public class GuiNetworkSettings extends GuiScreen {
                 relayField.updateCursorCounter();
         }
         public void onGuiClosed() {
-		String name = relayField.getText()
+		String name = relayField.getText();
 		NBTTagCompound relay = new NBTTagCompound();
 		relay.setString("relayurl", name);
 		ByteArrayOutputStream bao = new ByteArrayOutputStream();
