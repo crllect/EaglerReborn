@@ -125,7 +125,7 @@ public class GuiNetworkSettings extends GuiScreen {
 		super.mouseClicked(mx, my, button);
 		relayField.mouseClicked(mx, my, button);
         }
-	public relayURL() {
+	public static String relayURL() {
 		return relaything;
 	}
 
