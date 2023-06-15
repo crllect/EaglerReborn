@@ -49,7 +49,6 @@ public class GuiNetworkSettings extends GuiScreen {
 		drawDefaultBackground();
 		drawCenteredString(fontRendererObj, screenTitle, width / 2, 15, 16777215);
 		drawString(fontRendererObj, I18n.format("editProfile.username"), width / 2 - 20, height / 6 + 8, 10526880);
-		drawString(fontRendererObj, I18n.format("editProfile.playerSkin"), width / 2 - 20, height / 6 + 66, 10526880);
 		
 		mousex = mx;
 		mousey = my;
@@ -82,18 +81,17 @@ public class GuiNetworkSettings extends GuiScreen {
 		int xx = width / 2 - 80;
 		int yy = height / 6 + 130;
 		
-
+		
 	}
 
 
 	public void updateScreen() {
-		relaything.updateCursorCounter();
-		
+		relaything.updateCursorCounter();	
 	}
 		
 	public void onGuiClosed() {
-		public String relay = relaything.getText();
 		Keyboard.enableRepeatEvents(false);
+		public String relay = relaything.getText();
 	}
 
 	protected void keyTyped(char c, int k) {
@@ -101,8 +99,6 @@ public class GuiNetworkSettings extends GuiScreen {
 		
 		String text = relaything.getText();
 		relaything.updateText(text);
-		
-		
 	}
 	
 	
