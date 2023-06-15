@@ -7,8 +7,14 @@ import net.lax1dude.eaglercraft.v1_8.EagRuntime;
 import net.lax1dude.eaglercraft.v1_8.Keyboard;
 import net.lax1dude.eaglercraft.v1_8.Mouse;
 import net.minecraft.client.gui.GuiTextField;
+import net.lax1dude.eaglercraft.v1_8.EaglerInputStream;
 import net.minecraft.util.ResourceLocation;
 import static net.lax1dude.eaglercraft.v1_8.opengl.RealOpenGLEnums.*;
+import net.minecraft.nbt.CompressedStreamTools;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import me.otterdev.eaglerreborn.NetworkSettings;
 
 import java.io.IOException;
 
@@ -24,13 +30,33 @@ public class GuiNetworkSettings extends GuiScreen {
 	private boolean dropDownOpen = false;
 	private String[] dropDownOptions;
         protected String screenTitle = "Network Settings";
+	private String relaything = "placeholder";
         public GuiNetworkSettings(GuiScreen parent) {
 		this.parent = parent;
 	}
         public void initGui() {
+		byte[] relayStorage = EagRuntime.getStorage("relay");
+		if (relayStorage == null) {
+			return;
+		}
+		NBTTagCompound relay;
+		try {
+			relay = CompressedStreamTools.readCompressed(new EaglerInputStream(relayStorage));
+		}catch(IOException ex) {
+			return;
+		}
+
+		if (relay == null || relay.hasNoTags()) {
+			return;
+		}
+		String loadRelay = relay.getString("relay")
+		if(loadRelay.isEmpty()) {
+			relaything = NetworkSettings.defaultRelay;
+		}
 		Keyboard.enableRepeatEvents(true);
                 relayField = new GuiTextField(0, fontRendererObj, width / 2 - 20 + 1, height / 6 + 24 + 1, 138, 20);
 		relayField.setFocused(true);
+		usernameField.setText(relaything)
 
         }
 
@@ -69,6 +95,16 @@ public class GuiNetworkSettings extends GuiScreen {
                 relayField.updateCursorCounter();
         }
         public void onGuiClosed() {
+		String name = relayField.getText()
+		NBTTagCompound relay = new NBTTagCompound();
+		relay.setString("relayurl", name);
+		ByteArrayOutputStream bao = new ByteArrayOutputStream();
+		try {
+			CompressedStreamTools.writeCompressed(relay, bao);
+		} catch (IOException e) {
+			return;
+		}
+		EagRuntime.setStorage("relay", bao.toByteArray());
 		Keyboard.enableRepeatEvents(false);
 	}
         protected void keyTyped(char c, int k) {
