@@ -83,23 +83,23 @@ public class GuiNetworkSettings extends GuiScreen {
 		int yy = height / 6 + 130;
 		
 
-
+  }
 
 
 	public void updateScreen() {
 		relaything.updateCursorCounter();
 		
-
-		}
+	}
 		
 	public void onGuiClosed() {
+		public String relay = relaything.getText();
 		Keyboard.enableRepeatEvents(false);
 	}
 
 	protected void keyTyped(char c, int k) {
 		relaything.textboxKeyTyped(c, k);
 		
-		String text = relaything.getText();;
+		String text = relaything.getText();
 		relaything.updateText(text);
 		
 		
