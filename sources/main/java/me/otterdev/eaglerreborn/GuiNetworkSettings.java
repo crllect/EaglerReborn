@@ -32,11 +32,7 @@ public class GuiNetworkSettings extends GuiScreen {
 	private String[] dropDownOptions;
         protected String screenTitle = "Network Settings";
 	private String relaything = "placeholder";
-        public GuiNetworkSettings(GuiScreen parent) {
-		this.parent = parent;
-	}
-        public void initGui() {
-		byte[] relayStorage = EagRuntime.getStorage("relay");
+	byte[] relayStorage = EagRuntime.getStorage("relay");
 		if (relayStorage == null) {
 			return;
 		}
@@ -54,6 +50,10 @@ public class GuiNetworkSettings extends GuiScreen {
 		if(loadRelay.isEmpty()) {
 			relaything = NetworkSettings.defaultRelay;
 		}
+        public GuiNetworkSettings(GuiScreen parent) {
+		this.parent = parent;
+	}
+        public void initGui() {
 		Keyboard.enableRepeatEvents(true);
                 relayField = new GuiTextField(0, fontRendererObj, width / 2 - 20 + 1, height / 6 + 24 + 1, 138, 20);
 		relayField.setFocused(true);
