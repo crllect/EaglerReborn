@@ -19,12 +19,13 @@ public class GuiNetworkSettings extends GuiScreen {
         private int selectedSlot = 0;
         private int mousex = 0;
 	private int mousey = 0;
+	private int mx = 0;
+	private int my = 0;
 	private boolean dropDownOpen = false;
 	private String[] dropDownOptions;
         protected String screenTitle = "Network Settings";
         public GuiNetworkSettings(GuiScreen parent) {
 		this.parent = parent;
-		updateOptions();
 	}
         public void initGui() {
 		Keyboard.enableRepeatEvents(true);
@@ -37,6 +38,8 @@ public class GuiNetworkSettings extends GuiScreen {
                 drawDefaultBackground();
                 drawCenteredString(fontRendererObj, screenTitle, width / 2, 15, 16777215);
                 drawString(fontRendererObj, "Relay", width / 2 - 20, height / 6 + 8, 10526880);
+		mx = Mouse.getX();
+		my = Mouse.getY();
                 mousex = mx;
 		mousey = my;
                 relayField.drawTextBox();
