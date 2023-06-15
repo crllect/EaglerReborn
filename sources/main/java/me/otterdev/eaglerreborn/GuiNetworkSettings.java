@@ -33,23 +33,23 @@ public class GuiNetworkSettings extends GuiScreen {
         protected String screenTitle = "Network Settings";
 	private String relaything = "placeholder";
 	byte[] relayStorage = EagRuntime.getStorage("relay");
-		if (relayStorage == null) {
-			return;
-		}
-		NBTTagCompound relay;
-		try {
-			relay = CompressedStreamTools.readCompressed(new EaglerInputStream(relayStorage));
-		}catch(IOException ex) {
-			return;
-		}
+	if (relayStorage == null) {
+		return;
+	}
+	NBTTagCompound relay;
+	try {
+		relay = CompressedStreamTools.readCompressed(new EaglerInputStream(relayStorage));
+	}catch(IOException ex) {
+		return;
+	}
 
-		if (relay == null || relay.hasNoTags()) {
-			return;
-		}
-		String loadRelay = relay.getString("relay");
-		if(loadRelay.isEmpty()) {
-			relaything = NetworkSettings.defaultRelay;
-		}
+	if (relay == null || relay.hasNoTags()) {
+		return;
+	}
+	String loadRelay = relay.getString("relay");
+	if(loadRelay.isEmpty()) {
+		relaything = NetworkSettings.defaultRelay;
+	}
         public GuiNetworkSettings(GuiScreen parent) {
 		this.parent = parent;
 	}
