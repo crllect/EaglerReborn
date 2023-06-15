@@ -106,7 +106,6 @@ public class GuiNetworkSettings extends GuiScreen {
 			return;
 		}
 		EagRuntime.setStorage("relay", bao.toByteArray());
-		public String relaysocket = name;
 		Keyboard.enableRepeatEvents(false);
 	}
         protected void keyTyped(char c, int k) {
@@ -126,5 +125,8 @@ public class GuiNetworkSettings extends GuiScreen {
 		super.mouseClicked(mx, my, button);
 		relayField.mouseClicked(mx, my, button);
         }
+	public void relayURL() {
+		return relaything;
+	}
 
 }
