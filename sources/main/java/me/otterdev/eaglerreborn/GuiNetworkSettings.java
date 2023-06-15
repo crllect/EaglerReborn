@@ -9,6 +9,7 @@ import net.lax1dude.eaglercraft.v1_8.Mouse;
 import net.minecraft.client.gui.GuiTextField;
 import net.lax1dude.eaglercraft.v1_8.EaglerInputStream;
 import net.minecraft.util.ResourceLocation;
+import java.io.*;
 import static net.lax1dude.eaglercraft.v1_8.opengl.RealOpenGLEnums.*;
 import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTBase;
