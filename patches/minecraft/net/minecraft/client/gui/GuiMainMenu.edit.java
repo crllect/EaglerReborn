@@ -31,7 +31,7 @@
 ~ import net.lax1dude.eaglercraft.v1_8.opengl.EaglercraftGPU;
 ~ import net.lax1dude.eaglercraft.v1_8.opengl.GlStateManager;
 ~ import net.lax1dude.eaglercraft.v1_8.opengl.WorldRenderer;
-~ import net.lax1dude.eaglercraft.v1_8.profile.GuiScreenEditProfile;
+~ import net.lax1dude.eaglercraft.v1_8.profile.GuiScreenEditProfile; import me.otterdev.eaglerreborn.GuiNetworkSettings;
 
 > CHANGE  1 : 2  @  1 : 13
 
@@ -128,7 +128,7 @@
 > CHANGE  2 : 5  @  2 : 4
 
 ~ 		this.buttonList.add(new GuiButton(4, this.width / 2 + 2, i + 72 + 12, 98, 20,
-~ 				I18n.format("menu.editProfile", new Object[0])));
+~ 				"Network Settings"));
 ~ 
 
 > CHANGE  1 : 6  @  1 : 2
@@ -173,7 +173,7 @@
 
 > CHANGE  1 : 2  @  1 : 2
 
-~ 			this.mc.displayGuiScreen(new GuiScreenEditProfile(this));
+~ 			this.mc.displayGuiScreen(new GuiNetworkSettings(this)); // sorry now u gotta reload eagler to change user sorry
 
 > CHANGE  2 : 4  @  2 : 4
 
