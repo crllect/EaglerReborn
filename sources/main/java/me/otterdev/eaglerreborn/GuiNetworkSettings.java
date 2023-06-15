@@ -88,18 +88,78 @@ public class GuiNetworkSettings extends GuiScreen {
 	public void updateScreen() {
 		relaything.updateCursorCounter();	
 	}
-		
 	public void onGuiClosed() {
 		Keyboard.enableRepeatEvents(false);
-		public String relay = relaything.getText();
 	}
 
 	protected void keyTyped(char c, int k) {
 		relaything.textboxKeyTyped(c, k);
 		
 		String text = relaything.getText();
+		if(text.length() > 16) text = text.substring(0, 16);
 		relaything.updateText(text);
+		
+		if(k == 200 && selectedSlot > 0) {
+			--selectedSlot;
+			scrollPos = selectedSlot - 2;
+		}
+		if(k == 208 && selectedSlot < (dropDownOptions.length - 1)) {
+			++selectedSlot;
+			scrollPos = selectedSlot - 2;
+		}
 	}
 	
+	protected void mouseClicked(int mx, int my, int button) {
+		super.mouseClicked(mx, my, button);
+		relaything.mouseClicked(mx, my, button);
+		if (button == 0) {
+			if(newSkinWaitSteveOrAlex) {
+				int skinX = width / 2 - 90;
+				int skinY = height / 4;
+				int skinWidth = 70;
+				int skinHeight = 120;
+			
+					return;
+				}
+				}
+				return;
+			}
+			int skinX = width / 2 + 140 - 40;
+			int skinY = height / 6 + 82;
+		
+			if(mx >= skinX && mx < (skinX + 20) && my >= skinY && my < (skinY + 22)) {
+				dropDownOpen = !dropDownOpen;
+				return;
+			}
+			
+			skinX = width / 2 - 20;
+			skinY = height / 6 + 82;
+			int skinWidth = 140;
+			int skinHeight = skinsHeight;
+			
+			if(!(mx >= skinX && mx < (skinX + skinWidth) && my >= skinY && my < (skinY + skinHeight + 22))) {
+				dropDownOpen = false;
+				dragging = false;
+				return;
+			}
+			
+			skinY += 21;
+			
+			if(dropDownOpen && !dragging) {
+				for(int i = 0; i < slotsVisible; i++) {
+					if(i + scrollPos < dropDownOptions.length) {
+						if(selectedSlot != i + scrollPos) {
+							if(mx >= skinX && mx < (skinX + skinWidth - 10) && my >= (skinY + i * 10 + 5) && my < (skinY + i * 10 + 15) && selectedSlot != i + scrollPos) {
+								selectedSlot = i + scrollPos;
+								dropDownOpen = false;
+								dragging = false;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+		
 	
 }
