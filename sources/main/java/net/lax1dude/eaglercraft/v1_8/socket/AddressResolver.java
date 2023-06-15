@@ -3,7 +3,7 @@ package net.lax1dude.eaglercraft.v1_8.socket;
 import net.lax1dude.eaglercraft.v1_8.EagRuntime;
 import net.minecraft.client.multiplayer.ServerAddress;
 import net.minecraft.client.multiplayer.ServerData;
-import me.otterdev.eaglerreborn.NetworkSettings;
+import me.otterdev.eaglerreborn.GuiNetworkSettings;
 
 /**
  * Copyright (c) 2022-2023 LAX1DUDE. All Rights Reserved.
@@ -19,7 +19,7 @@ import me.otterdev.eaglerreborn.NetworkSettings;
  * 
  */
 public class AddressResolver {
-
+private String relay = GuiNetworkSettings.relayURL();
 	public static String resolveURI(ServerData input) {
 		return resolveURI(input.serverIP);
 	}
@@ -28,9 +28,9 @@ public class AddressResolver {
 		String lc = input.toLowerCase();
 		if(!lc.startsWith("ws://") && !lc.startsWith("wss://")) {
 			if(EagRuntime.requireSSL()) {
-				input = NetworkSettings.defaultRelay + "/" + input + "._oA";
+				input = relay + "/" + input + "._oA";
 			}else {
-				input = NetworkSettings.defaultRelay + "/" + input + "._oA";
+				input = relay + "/" + input + "._oA";
 			}
 		}
 		return input;
