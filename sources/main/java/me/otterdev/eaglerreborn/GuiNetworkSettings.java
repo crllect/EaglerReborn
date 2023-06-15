@@ -32,19 +32,22 @@ public class GuiNetworkSettings extends GuiScreen {
 	private String[] dropDownOptions;
         protected String screenTitle = "Network Settings";
 	private String relaything = "placeholder";
-	byte[] relayStorage = EagRuntime.getStorage("relay");
+	private String bonk = "no";
+	
+	byte[] relayStorage = EagRuntime.getStorage("r");
+	
 	if (relayStorage == null) {
-		return;
+		bonk = "yes";
 	}
 	NBTTagCompound relay;
 	try {
 		relay = CompressedStreamTools.readCompressed(new EaglerInputStream(relayStorage));
 	}catch(IOException ex) {
-		return;
+		bonk = "yessir";
 	}
 
 	if (relay == null || relay.hasNoTags()) {
-		return;
+		bonk = "ultra yessir";
 	}
 	String loadRelay = relay.getString("relay");
 	if(loadRelay.isEmpty()) {
@@ -105,7 +108,7 @@ public class GuiNetworkSettings extends GuiScreen {
 		} catch (IOException e) {
 			return;
 		}
-		EagRuntime.setStorage("relay", bao.toByteArray());
+		EagRuntime.setStorage("r", bao.toByteArray());
 		Keyboard.enableRepeatEvents(false);
 	}
         protected void keyTyped(char c, int k) {
