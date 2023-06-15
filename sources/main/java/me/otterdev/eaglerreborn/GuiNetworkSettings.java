@@ -83,7 +83,7 @@ public class GuiNetworkSettings extends GuiScreen {
 		int yy = height / 6 + 130;
 		
 
-  }
+	}
 
 
 	public void updateScreen() {
