@@ -8,7 +8,7 @@
 > CHANGE  2 : 4  @  2 : 3
 
 ~ import net.lax1dude.eaglercraft.v1_8.EagRuntime;
-~ import net.lax1dude.eaglercraft.v1_8.vfs.SYS; import me.otterdev.eaglerreborn.GuiNetworkSettings;
+~ import net.lax1dude.eaglercraft.v1_8.vfs.SYS;
 
 > DELETE  4  @  4 : 21
 
@@ -16,13 +16,13 @@
 
 > INSERT  12 : 14  @  12
 
-+ 	private GuiButton networkSettings;
++ 	private GuiButton notSoSuperSecret;
 + 	private GuiButton broadcastSettings;
 
 > CHANGE  46 : 48  @  46 : 48
 
-~ 		this.buttonList.add(networkSettings = new GuiButton(8675309, this.width / 2 + 5, this.height / 6 + 48 - 6, 150,
-~ 				20, "Network Settings") {
+~ 		this.buttonList.add(notSoSuperSecret = new GuiButton(8675309, this.width / 2 + 5, this.height / 6 + 48 - 6, 150,
+~ 				20, "Super Secret Settings...") {
 
 > CHANGE  13 : 16  @  13 : 15
 
@@ -55,7 +55,7 @@
 
 > CHANGE  32 : 33  @  32 : 33
 
-~ 				this.displayGuiScreen(new GuiScreenNetworkSettings(new GuiOptions()));
+~ 				notSoSuperSecret.displayString = "Nope!";
 
 > DELETE  22  @  22 : 27
 
