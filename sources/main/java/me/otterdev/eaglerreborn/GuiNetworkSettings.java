@@ -37,19 +37,19 @@ public class GuiNetworkSettings extends GuiScreen {
 	
 	
 
-	String loadRelay = relay.getString("relay");
+	
 	
         public GuiNetworkSettings(GuiScreen parent) {
 		this.parent = parent;
 	}
         public void initGui() {
-		byte[] relayStorage = EagRuntime.getStorage("r");
-		NBTTagCompound relay;
-		relay = CompressedStreamTools.readCompressed(new EaglerInputStream(relayStorage));
-		String loadRelay = relay.getString("relay");
+		static byte[] relayStorage = EagRuntime.getStorage("r");
+		static NBTTagCompound relay = CompressedStreamTools.readCompressed(new EaglerInputStream(relayStorage));
+		static String loadRelay = relay.getString("relay");
 		Keyboard.enableRepeatEvents(true);
                 relayField = new GuiTextField(0, fontRendererObj, width / 2 - 20 + 1, height / 6 + 24 + 1, 138, 20);
 		relayField.setFocused(true);
+		relaything = loadRelay;
 		relayField.setText(relaything);
 
         }
