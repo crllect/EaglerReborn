@@ -23,5 +23,5 @@ import net.lax1dude.eaglercraft.v1_8.EagUtils;
 public class TCPAPI {
 
   @JSBody(params = { }, script = "if(window.chrome && chrome.app && chrome.app.runtime){return true;}else{return false;}")
-  public static native boolean betterTCPSupported();
+  public static native boolean chromeAppTCP();
 }
