@@ -24,4 +24,7 @@ public class TCPAPI {
 
   @JSBody(params = { }, script = "if(window.chrome && chrome.app && chrome.app.runtime){return true;}else{return false;}")
   public static native boolean chromeAppTCP();
+
+  @JSBody(params = { }, script = "if(navigator.userAgent.indexOf('Electron') >= 0){return true;}else{return false;}")
+  public static native boolean electronAppTCP();
 }
