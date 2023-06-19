@@ -31,12 +31,12 @@ public class EaglercraftVersion {
 	// Miscellaneous variables:
 
 	public static final String mainMenuStringA = "Minecraft 1.8.8";
-	public static final String mainMenuStringB = "Eagler Reborn INDEV 2";
-	public static final String mainMenuStringC = "made by otterdev";
-	public static final String mainMenuStringD = "Resources Copyright Mojang AB";
+	public static final String mainMenuStringB = "Eagler Reborn INFDEV";
+	public static final String mainMenuStringC = "made by OtterDev";
+	public static final String mainMenuStringD = "Resources Copyright Mojang AB. Do not distribute!";
 
-	public static final String mainMenuStringE = projectForkName + " " + projectForkVersion;
-	public static final String mainMenuStringF = "Made by " + projectForkVendor;
+	public static final String mainMenuStringE = null;
+	public static final String mainMenuStringF = null;
 
 	public static final boolean mainMenuEnableGithubButton = true;
 	
