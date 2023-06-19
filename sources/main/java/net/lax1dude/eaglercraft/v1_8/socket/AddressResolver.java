@@ -19,7 +19,6 @@ import me.otterdev.eaglerreborn.NetworkSettings;
  * 
  */
 public class AddressResolver {
-private String relay = GuiNetworkSettings.relayURL();
 	public static String resolveURI(ServerData input) {
 		return resolveURI(input.serverIP);
 	}
