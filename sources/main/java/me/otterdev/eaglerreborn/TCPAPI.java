@@ -27,7 +27,4 @@ public class TCPAPI {
 
   @JSBody(params = { }, script = "if(navigator.userAgent.indexOf('Electron') >= 0){return true;}else{return false;}")
   public static native boolean electronAppTCP(); // this is for possible future Windows, Mac, Linux support for Eagler
-  
-  @JSBody(params = { "message" }, script = "confirm(message)")
-  public static native boolean confirm(String message); // miscellaneous javascript thing
 }
