@@ -23,8 +23,8 @@ import net.lax1dude.eaglercraft.v1_8.EagUtils;
 public class TCPAPI {
 
   @JSBody(params = { }, script = "if(window.chrome && chrome.app && chrome.app.runtime){return true;}else{return false;}")
-  public static native boolean chromeAppTCP();
+  public static native boolean chromeAppTCP(); // your chromebook is probably too new to run chrome apps
 
   @JSBody(params = { }, script = "if(navigator.userAgent.indexOf('Electron') >= 0){return true;}else{return false;}")
-  public static native boolean electronAppTCP();
+  public static native boolean electronAppTCP(); // this is for possible future Windows, Mac, Linux support for Eagler
 }
