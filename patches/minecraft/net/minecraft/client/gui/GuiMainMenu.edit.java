@@ -128,7 +128,7 @@
 > CHANGE  2 : 5  @  2 : 4
 
 ~ 		this.buttonList.add(new GuiButton(4, this.width / 2 + 2, i + 72 + 12, 98, 20,
-~ 				"Network Settings"));
+~ 				"Edit Profile"));
 ~ 
 
 > CHANGE  1 : 6  @  1 : 2
