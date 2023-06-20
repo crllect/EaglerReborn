@@ -1,0 +1,44 @@
+/* styles.css */
+
+/* General styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url('54d35ed2-62df-46a1-bc42-8bc81755532b.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Header styles */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav-item {
+  margin-left: 20px;
+}
