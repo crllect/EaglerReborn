@@ -22,5 +22,5 @@ import net.lax1dude.eaglercraft.v1_8.EagUtils;
 
 public class ModAPI {
   @JSBody(params = { "mod" }, script = "eval(mod);")
-  public static native void loadMod(String mod);
+  public static native void loadMod(String mod); // this could be used theoretically to add mods to eagler
 }
