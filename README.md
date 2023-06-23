@@ -2,7 +2,8 @@
 ---
 ### Eaglercraft client with Java support.
 
-![Eagler Reborn Title Screen](https://github.com/EaglerReborn/EaglerReborn/assets/134523836/9581219c-115e-4bd1-81b3-a060f849c6b4) <!-- damn i can't believe i got a "It's here!" splash that wasn't even intentional -->
+![Eagler Reborn Title Screen](https://github.com/EaglerReborn/EaglerReborn/assets/134523836/96439cd8-02b6-458e-96d2-2ccaf4a0d461)
+
 ---
 
 ### This repository contains:
