@@ -122,7 +122,7 @@
 
 > INSERT  2 : 4  @  2
 
-+ 		this.addSingleplayerMultiplayerButtons(i, 24);
++ 		this.addSingleplayerMultiplayerButtons(j, 24);
 + 
 
 > CHANGE  2 : 5  @  2 : 4
