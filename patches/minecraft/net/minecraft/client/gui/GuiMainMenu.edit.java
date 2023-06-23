@@ -96,7 +96,7 @@
 + 				this.isDefault = true;
 + 			}
 + 		} catch (IOException e) {
-+ 			this.isDefault = false;
++ 			this.isDefault = true;
 + 		}
 
 > CHANGE  10 : 11  @  10 : 11
