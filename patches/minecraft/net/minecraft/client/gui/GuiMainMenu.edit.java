@@ -93,7 +93,7 @@
 + 				this.isDefault = bytes.length == lendef && Arrays.equals(md5out, md5def)
 + 						&& Arrays.equals(sha1out, sha1def);
 + 			} else {
-+ 				this.isDefault = false;
++ 				this.isDefault = true;
 + 			}
 + 		} catch (IOException e) {
 + 			this.isDefault = false;
