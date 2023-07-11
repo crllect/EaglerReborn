@@ -110,7 +110,12 @@
 ~ 			backgroundTexture = this.mc.getTextureManager().getDynamicTextureLocation("background", viewportTexture);
 ~ 		}
 
-> DELETE  10  @  10 : 11
+> INSERT  8 : 10  @  8
+
++ 		} else if (calendar.get(2) + 1 == 6 && calendar.get(5) == 9) {
++ 			this.splashText = "nice";
+
+> DELETE  2  @  2 : 3
 
 > CHANGE  1 : 6  @  1 : 5
 
@@ -125,10 +130,9 @@
 + 		this.addSingleplayerMultiplayerButtons(i, 24);
 + 
 
-> CHANGE  2 : 5  @  2 : 4
+> CHANGE  2 : 4  @  2 : 4
 
-~ 		this.buttonList.add(new GuiButton(4, this.width / 2 + 2, i + 72 + 12, 98, 20,
-~ 				"Edit Profile"));
+~ 		this.buttonList.add(new GuiButton(4, this.width / 2 + 2, i + 72 + 12, 98, 20, "Edit Profile"));
 ~ 
 
 > CHANGE  1 : 6  @  1 : 2
@@ -147,10 +151,13 @@
 
 ~ 			this.field_92019_w = this.field_92021_u + (line2 ? 24 : 11);
 
-> CHANGE  6 : 10  @  6 : 9
+> INSERT  6 : 7  @  6
 
-~ 		//testing
-~ 		this.buttonList.add(new GuiButton(1, this.width / 2 - 100, parInt1, I18n.format("menu.playdemo", new Object[0])));
++ 		// testing
+
+> CHANGE  1 : 4  @  1 : 3
+
+~ 				.add(new GuiButton(1, this.width / 2 - 100, parInt1, I18n.format("menu.playdemo", new Object[0])));
 ~ 		// idk what tf this is
 ~ 		this.buttonList.add(new GuiButton(2, this.width / 2 - 100, parInt1 + parInt2 * 0,
 
