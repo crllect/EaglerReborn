@@ -10,7 +10,15 @@
 ~ import net.lax1dude.eaglercraft.v1_8.EaglercraftRandom;
 ~ 
 
-> CHANGE  26 : 27  @  26 : 27
+> INSERT  3 : 4  @  3
+
++ import net.minecraft.creativetab.CreativeTabs;
+
+> INSERT  13 : 14  @  13
+
++ 		this.setCreativeTab(CreativeTabs.tabDecorations);
+
+> CHANGE  10 : 11  @  10 : 11
 
 ~ 	public void updateTick(World world, BlockPos blockpos, IBlockState var3, EaglercraftRandom var4) {
 
