@@ -1,0 +1,70 @@
+
+# Eagler Context Redacted Diff
+# Copyright (c) 2023 lax1dude. All rights reserved.
+
+# Version: 1.0
+# Author: lax1dude
+
+> DELETE  4  @  4 : 5
+
+> DELETE  4  @  4 : 5
+
+> CHANGE  111 : 112  @  111 : 112
+
+~ 1% sugar!
+
+> DELETE  14  @  14 : 15
+
+> DELETE  36  @  36 : 37
+
+> DELETE  59  @  59 : 60
+
+> DELETE  25  @  25 : 26
+
+> DELETE  43  @  43 : 44
+
+> CHANGE  12 : 13  @  12 : 13
+
+~ Now Java 8!
+
+> INSERT  42 : 79  @  42
+
++ More Digital!
++ doot doot
++ Falling with style!
++ There's no stopping the Trollmaso
++ Throw yourself at the ground and miss
++ Rule #1: it's never my fault
++ Replaced molten cheese with blood?
++ Absolutely fixed relatively broken coordinates
++ Boats FTW
++ Javalicious edition
++ Should not be played while driving
++ You're going too fast!
++ Don't feed chocolate to parrots!
++ The true meaning of covfefe
++ An illusion! What are you hiding?
++ Something's not quite right...
++ Thank you for the fish!
++ All rumors are true!
++ Truly gone fishing!
++ Rainbow turtle?
++ Something funny!
++ I need more context.
++ Ahhhhhh!
++ Don't worry, be happy!
++ Water bottle!
++ What's the question?
++ Plant a tree!
++ Go to the dentist!
++ What do you expect?
++ Look mum, I'm in a splash!
++ It came from space.
++ Awesome game design right there!
++ Ph1lza had a good run!
++ 10 years of Mining and Crafting!
++ Ping the human!
++ Technoblade never dies!
++ otterdev was here
+
+> EOF
