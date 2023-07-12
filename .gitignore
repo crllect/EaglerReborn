@@ -9,4 +9,5 @@ MinecraftSrc.zip
 /rundir/*
 /##TEAVM.TMP##/*
 src/*
-minetok/*
+temp/*
+pullrequest/*
