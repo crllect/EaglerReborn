@@ -238,7 +238,7 @@ public class MainClass {
 			HTMLElement el = doc.getElementById(configRootElement);
 
 			StringBuilder str = new StringBuilder();
-			str.append("Eagler Reborn has crashed!\n" + getWittyComment() + "\n");
+			str.append("Eagler Reborn has crashed!\n\n" + getWittyComment() + "\n\n");
 			str.append(t);
 			str.append('\n').append('\n');
 			str.append("eaglercraft.version = \"").append(EaglercraftVersion.projectForkVersion).append("\"\n");
