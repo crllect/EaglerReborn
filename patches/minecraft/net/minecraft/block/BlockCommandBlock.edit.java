@@ -16,7 +16,7 @@
 
 > INSERT  16 : 17  @  16
 
-+ 		this.setCreativeTab(CreativeTabs.tabRedstone); // your welcome
++ 		// this.setCreativeTab(CreativeTabs.tabRedstone);
 
 > CHANGE  6 : 7  @  6 : 21
 

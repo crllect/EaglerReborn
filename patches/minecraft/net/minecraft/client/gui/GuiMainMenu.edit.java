@@ -110,10 +110,12 @@
 ~ 			backgroundTexture = this.mc.getTextureManager().getDynamicTextureLocation("background", viewportTexture);
 ~ 		}
 
-> INSERT  8 : 10  @  8
+> INSERT  8 : 12  @  8
 
 + 		} else if (calendar.get(2) + 1 == 6 && calendar.get(5) == 9) {
 + 			this.splashText = "nice";
++ 		} else if (calendar.get(2) + 1 == 6 && calendar.get(5) == 1) {
++ 			this.splashText = "Happy Birthday, Notch!";
 
 > DELETE  2  @  2 : 3
 

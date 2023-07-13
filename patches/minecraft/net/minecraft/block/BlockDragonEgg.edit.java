@@ -16,7 +16,7 @@
 
 > INSERT  13 : 14  @  13
 
-+ 		this.setCreativeTab(CreativeTabs.tabDecorations);
++ 		// this.setCreativeTab(CreativeTabs.tabDecorations);
 
 > CHANGE  10 : 11  @  10 : 11
 
