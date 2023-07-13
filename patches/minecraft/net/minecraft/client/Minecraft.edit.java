@@ -237,7 +237,7 @@
 
 ~ 	private void createDisplay() {
 ~ 		Display.create();
-~ 		Display.setTitle("Eaglercraft 1.8.8");
+~ 		Display.setTitle("Eagler Reborn");
 
 > DELETE  2  @  2 : 39
 
