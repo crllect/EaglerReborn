@@ -41,10 +41,7 @@ Compile it yourself here: https://github.com/EaglerReborn/EaglerReborn
 // %%%%%%%%% launch options %%%%%%%%%%%%
 
 window.eaglercraftXOpts = { container: "game_frame", servers: [
-							     { addr: "wss://mc.arch.lol/", name: "ArchMC" },
-							     { addr: "wss://cereallink.repl.co", name: "CerealNet" },
 							     { addr: "wss://mercurymc.net", name: "MercuryMC" },
-							     { addr: "cerealnet.duckdns.org", name: "Java support demo" },
 							
 						     ] 
 };
