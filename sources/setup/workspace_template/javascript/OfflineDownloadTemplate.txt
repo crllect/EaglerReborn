@@ -40,7 +40,7 @@ Compile it yourself here: https://github.com/EaglerReborn/EaglerReborn
 
 // %%%%%%%%% launch options %%%%%%%%%%%%
 
-window.eaglercraftXOpts = { container: "game_frame", servers: [
+window.eaglercraftXOpts = { container: "game_frame", relayURL: "wss://reborn-relay.otterdev.repl.co", servers: [
 							     { addr: "wss://mercurymc.net", name: "MercuryMC" },
 							
 						     ] 
