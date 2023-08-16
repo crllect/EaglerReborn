@@ -64,6 +64,7 @@ public class MainClass {
 				JSONObject eaglercraftOpts = new JSONObject(opts);
 				
 				configRootElement = eaglercraftOpts.getString("container");
+				relayURL = eaglercraftOpts.getString("relayURL");
 				
 				Object epkConfig = eaglercraftOpts.get("assetsURI");
 				if(epkConfig instanceof JSONArray) {
@@ -196,6 +197,7 @@ public class MainClass {
 	}
 
 	public static String configRootElement = null;
+	public static String relayURL = null;
 	public static EPKFileEntry[] configEPKFiles = null;
 	public static String configLocalesFolder = null;
 	
