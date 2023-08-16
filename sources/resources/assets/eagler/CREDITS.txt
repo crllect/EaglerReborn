@@ -5,20 +5,8 @@ Eagler Reborn Developers
 OtterDev/OtterCodes101:
  
  - Creator and lead developer of Eagler Reborn
- - makes 90% of the code
+ - Wrote built-in relay system
  
- 
-Cerealistic:
- 
- - another one of the devs for Eagler Reborn
- - thought up some core features
- 
- 
-Woody:
- - programmer for Eagler Reborn
- - thats about it
-
-
 
 
  EaglercraftX Developers
