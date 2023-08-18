@@ -57,6 +57,9 @@ If the server has both Java and Eagler support, you should definitely use Eagler
 
 <a href="https://replit.com/new/github/EaglerReborn/relay"><img src="https://raw.githubusercontent.com/BinBashBanana/deploy-buttons/main/buttons/remade/replit.svg"></img></a>
 
+Just click the "Run on replit" button to make a relay.
+make sure to set it to "blank repl" 
+
 
 ---
 
@@ -64,9 +67,3 @@ If the server has both Java and Eagler support, you should definitely use Eagler
 - only SRV records are accepted
 - cannot add a port to the address of the server(for example example.com:25565 is not allowed)
 
-
-Just click the "Run on replit" button to make a relay.
-make sure to set it to "blank repl" 
-run the repl, then wait a bit.
-once u see the webview, ur done. (once u see the `>` its 100% finished) 
-take the link in the webview and replace `https://` with `wss://`. then, fork this repo and go to `sources/main/java/me/otterdev/eaglerreborn/NetworkSettings.java`. take the `wss://` link u made earlier and replace `wss://reborn-relay.otterdev.repl.co` with your relay. Afterward, compile the client and your relay is all setup!
