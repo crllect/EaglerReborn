@@ -91,7 +91,11 @@
 
 + import net.minecraft.util.StringTranslate;
 
-> DELETE  6  @  6 : 26
+> CHANGE  6 : 9  @  6 : 26
+
+~ import net.zxmushroom63.plugins.BaseData;
+~ import net.zxmushroom63.plugins.PluginAPI;
+~ import net.zxmushroom63.plugins.PluginData;
 
 > CHANGE  1 : 2  @  1 : 2
 
@@ -101,7 +105,11 @@
 
 ~ 	public static final boolean isRunningOnMac = false;
 
-> DELETE  12  @  12 : 14
+> INSERT  5 : 6  @  5
+
++ 	public PluginAPI pluginApi;
+
+> DELETE  7  @  7 : 9
 
 > DELETE  19  @  19 : 20
 
@@ -171,9 +179,10 @@
 ~ 		} finally {
 ~ 			this.shutdownMinecraftApplet();
 
-> CHANGE  4 : 6  @  4 : 6
+> CHANGE  4 : 7  @  4 : 6
 
 ~ 	private void startGame() throws IOException {
+~ 		this.pluginApi = new PluginAPI(theMinecraft);
 ~ 		this.gameSettings = new GameSettings(this);
 
 > DELETE  1  @  1 : 2
@@ -470,8 +479,18 @@
 + 					KeyBinding.setKeyBindState(gameSettings.keyBindSprint.getKeyCode(), Keyboard.getEventKeyState());
 + 				}
 
-> CHANGE  26 : 27  @  26 : 27
+> CHANGE  26 : 37  @  26 : 27
 
+~ 
+~ 						PluginData event = new PluginData();
+~ 						event.set("key", k);
+~ 						event.set("preventDefault", false);
+~ 						BaseData newEvent = PluginAPI.callEvent("key", event);
+~ 						if (newEvent.has("preventDefault") && newEvent.getBoolean("preventDefault")) {
+~ 							return;
+~ 						}
+~ 						k = newEvent.has("key") ? newEvent.getInt("key") : k;
+~ 
 ~ 						if (k == 1 || (k > -1 && k == this.gameSettings.keyBindClose.getKeyCode())) {
 
 > INSERT  41 : 42  @  41

@@ -23,13 +23,20 @@
 
 > DELETE  8  @  8 : 9
 
-> DELETE  14  @  14 : 15
+> CHANGE  14 : 16  @  14 : 15
+
+~ import net.zxmushroom63.plugins.BaseData;
+~ import net.zxmushroom63.plugins.PluginData;
 
 > CHANGE  1 : 2  @  1 : 2
 
 ~ public abstract class Entity {
 
-> CHANGE  44 : 45  @  44 : 45
+> CHANGE  28 : 29  @  28 : 29
+
+~ 	public boolean isInWeb;
+
+> CHANGE  15 : 16  @  15 : 16
 
 ~ 	protected EaglercraftRandom rand;
 
@@ -97,7 +104,40 @@
 
 ~ 				for (AxisAlignedBB axisalignedbb12 : (List<AxisAlignedBB>) list) {
 
-> DELETE  595  @  595 : 596
+> INSERT  233 : 263  @  233
+
++ 	public void loadPluginData(BaseData data) {
++ 		setPosition(data.getDouble("x"), data.getDouble("y"), data.getDouble("z"));
++ 		motionX = data.getDouble("motionX");
++ 		motionY = data.getDouble("motionY");
++ 		motionY = data.getDouble("motionZ");
++ 		rotationYaw = data.getFloat("yaw");
++ 		rotationPitch = data.getFloat("pitch");
++ 		isInWeb = data.getBoolean("isInWeb");
++ 	}
++ 
++ 	public PluginData makePluginData() {
++ 		PluginData data = new PluginData();
++ 		data.set("x", posX);
++ 		data.set("y", posY);
++ 		data.set("z", posZ);
++ 		data.set("motionX", motionX);
++ 		data.set("motionY", motionY);
++ 		data.set("motionZ", motionZ);
++ 		data.set("yaw", rotationYaw);
++ 		data.set("pitch", rotationPitch);
++ 		data.set("isInWeb", isInWeb);
++ 		data.set("isCollided", isCollided);
++ 		data.set("isCollidedVertically", isCollidedVertically);
++ 		data.set("isCollidedHorizontally", isCollidedHorizontally);
++ 		data.set("dimension", dimension);
++ 		data.set("id", entityId);
++ 		data.set("fallDistance", fallDistance);
++ 		return data;
++ 	}
++ 
+
+> DELETE  362  @  362 : 363
 
 > CHANGE  55 : 57  @  55 : 56
 
