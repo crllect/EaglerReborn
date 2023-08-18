@@ -38,6 +38,6 @@ PluginAPI.updateComponent = function updateComponent(component) {
   if (!PluginAPI.globals || !PluginAPI.globals.onGlobalsUpdate) {
     return;
   }
-  PluginAPI.globals.onGlobalUpdate(component);
+  PluginAPI.globals.onGlobalsUpdate(component);
 };
 window.PluginAPI = PluginAPI;

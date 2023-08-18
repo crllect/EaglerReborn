@@ -60,7 +60,7 @@ public class PluginAPI {
             "  if (!PluginAPI.globals || !PluginAPI.globals.onGlobalsUpdate) {\r\n" + //
             "    return;\r\n" + //
             "  }\r\n" + //
-            "  PluginAPI.globals.onGlobalUpdate(component);\r\n" + //
+            "  PluginAPI.globals.onGlobalsUpdate(component);\r\n" + //
             "};\r\n" + //
             "window.PluginAPI = PluginAPI;")
     private static native void init();
