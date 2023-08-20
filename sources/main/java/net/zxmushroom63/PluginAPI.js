@@ -2,6 +2,7 @@ var PluginAPI = {};
 PluginAPI.events = {};
 PluginAPI.events.types = [];
 PluginAPI.events.listeners = {};
+PluginAPI.globals = {};
 PluginAPI.addEventListener = function addEventListener(name, callback) {
   if (PluginAPI.events.types.includes(name)) {
     if (!Array.isArray(PluginAPI.events.listeners[name])) {
@@ -26,6 +27,8 @@ PluginAPI.events.callEvent = function callEvent(name, data) {
   PluginAPI.events.listeners[name].forEach((func) => {
     func(data);
   });
+
+  PluginAPI.globals._initUpdate();
 };
 PluginAPI.updateComponent = function updateComponent(component) {
   if (
@@ -38,6 +41,16 @@ PluginAPI.updateComponent = function updateComponent(component) {
   if (!PluginAPI.globals || !PluginAPI.globals.onGlobalsUpdate) {
     return;
   }
-  PluginAPI.globals.onGlobalsUpdate(component);
+  if (!PluginAPI.globals.toUpdate) {
+    PluginAPI.globals.toUpdate = [];
+  }
+  if (PluginAPI.globals.toUpdate.indexOf(component) === -1) {
+    PluginAPI.globals.toUpdate.push(component);
+  }
+};
+PluginAPI.globals._initUpdate = function _initUpdate() {
+  PluginAPI.globals.toUpdate.forEach((id) => {
+    PluginAPI.globals.onGlobalsUpdate();
+  });
 };
 window.PluginAPI = PluginAPI;

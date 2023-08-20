@@ -16,14 +16,13 @@ import java.util.Map;
 
 public class PluginAPI {
     private Minecraft mc;
-    private static final Logger logger = LogManager.getLogger();
-    private Map<String, Integer> globalsMap = new HashMap<String, Integer>();
-    private Map<Integer, String> reverseGlobalsMap = new HashMap<Integer, String>();
+    public static final Logger logger = LogManager.getLogger();
 
     @JSBody(params = {}, script = "var PluginAPI = {};\r\n" + //
             "PluginAPI.events = {};\r\n" + //
             "PluginAPI.events.types = [];\r\n" + //
             "PluginAPI.events.listeners = {};\r\n" + //
+            "PluginAPI.globals = {};\r\n" + //
             "PluginAPI.addEventListener = function addEventListener(name, callback) {\r\n" + //
             "  if (PluginAPI.events.types.includes(name)) {\r\n" + //
             "    if (!Array.isArray(PluginAPI.events.listeners[name])) {\r\n" + //
@@ -48,6 +47,8 @@ public class PluginAPI {
             "  PluginAPI.events.listeners[name].forEach((func) => {\r\n" + //
             "    func(data);\r\n" + //
             "  });\r\n" + //
+            "\r\n" + //
+            "  PluginAPI.globals._initUpdate();\r\n" + //
             "};\r\n" + //
             "PluginAPI.updateComponent = function updateComponent(component) {\r\n" + //
             "  if (\r\n" + //
@@ -60,7 +61,17 @@ public class PluginAPI {
             "  if (!PluginAPI.globals || !PluginAPI.globals.onGlobalsUpdate) {\r\n" + //
             "    return;\r\n" + //
             "  }\r\n" + //
-            "  PluginAPI.globals.onGlobalsUpdate(component);\r\n" + //
+            "  if (!PluginAPI.globals.toUpdate) {\r\n" + //
+            "    PluginAPI.globals.toUpdate = [];\r\n" + //
+            "  }\r\n" + //
+            "  if (PluginAPI.globals.toUpdate.indexOf(component) === -1) {\r\n" + //
+            "    PluginAPI.globals.toUpdate.push(component);\r\n" + //
+            "  }\r\n" + //
+            "};\r\n" + //
+            "PluginAPI.globals._initUpdate = function _initUpdate() {\r\n" + //
+            "  PluginAPI.globals.toUpdate.forEach((id) => {\r\n" + //
+            "    PluginAPI.globals.onGlobalsUpdate();\r\n" + //
+            "  });\r\n" + //
             "};\r\n" + //
             "window.PluginAPI = PluginAPI;")
     private static native void init();
@@ -74,12 +85,16 @@ public class PluginAPI {
     @JSBody(params = { "name", "data" }, script = "PluginAPI[name]=data;")
     public static native void setGlobal(String name, BaseData data);
 
-    @JSBody(params = { "name" }, script = "return PluginAPI[name];")
+    @JSBody(params = { "name" }, script = "return PluginAPI[name] || {};")
     public static native BaseData getGlobal(String name);
 
+    @JSBody(params = { "data" }, script = "console.log(data);")
+    public static native void logJSObj(JSObject data);
+
     public void onGlobalUpdated(String global) {
-        logger.info("Global update request: "+global);
+        //logger.info("Global update request: "+global);
         BaseData data = getGlobal(global);
+        //logJSObj(data);
         if (data == null) {
             return;
         }

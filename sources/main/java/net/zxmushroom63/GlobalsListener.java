@@ -12,6 +12,6 @@ class GlobalsListener {
         void onGlobalsUpdate(String global);
     }
 
-    @JSBody(params = { "handler" }, script = "window.PluginAPI.globals = {}; window.PluginAPI.globals.onGlobalsUpdate = handler;")
+    @JSBody(params = { "handler" }, script = "window.PluginAPI.globals.onGlobalsUpdate = handler;")
     static native void provideCallback(GlobalsHandler handler);
 }

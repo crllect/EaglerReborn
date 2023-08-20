@@ -5,8 +5,14 @@
 # Version: 1.0
 # Author: lax1dude
 
-> CHANGE  3 : 6  @  3 : 5
+> INSERT  2 : 3  @  2
 
++ import java.util.HashMap;
+
+> CHANGE  1 : 6  @  1 : 3
+
+~ import java.util.Map;
+~ 
 ~ import net.lax1dude.eaglercraft.v1_8.EaglercraftRandom;
 ~ import net.lax1dude.eaglercraft.v1_8.EaglercraftUUID;
 ~ import net.lax1dude.eaglercraft.v1_8.HString;
@@ -15,7 +21,9 @@
 
 + 
 
-> DELETE  7  @  7 : 10
+> CHANGE  7 : 8  @  7 : 10
+
+~ import net.minecraft.client.Minecraft;
 
 > DELETE  4  @  4 : 7
 
@@ -23,10 +31,11 @@
 
 > DELETE  8  @  8 : 9
 
-> CHANGE  14 : 16  @  14 : 15
+> CHANGE  14 : 17  @  14 : 15
 
 ~ import net.zxmushroom63.plugins.BaseData;
 ~ import net.zxmushroom63.plugins.PluginData;
+~ import net.zxmushroom63.plugins.PluginAPI;
 
 > CHANGE  1 : 2  @  1 : 2
 
@@ -104,16 +113,25 @@
 
 ~ 				for (AxisAlignedBB axisalignedbb12 : (List<AxisAlignedBB>) list) {
 
-> INSERT  233 : 263  @  233
+> INSERT  233 : 281  @  233
 
 + 	public void loadPluginData(BaseData data) {
 + 		setPosition(data.getDouble("x"), data.getDouble("y"), data.getDouble("z"));
 + 		motionX = data.getDouble("motionX");
 + 		motionY = data.getDouble("motionY");
-+ 		motionY = data.getDouble("motionZ");
++ 		motionZ = data.getDouble("motionZ");
 + 		rotationYaw = data.getFloat("yaw");
 + 		rotationPitch = data.getFloat("pitch");
 + 		isInWeb = data.getBoolean("isInWeb");
++ 		onGround = data.getBoolean("onGround");
++ 		noClip = data.getBoolean("noClip");
++ 		stepHeight = data.getFloat("stepHeight");
++ 		isCollided = data.getBoolean("isCollided");
++ 		isCollidedHorizontally = data.getBoolean("isCollidedHorizontally");
++ 		isCollidedVertically = data.getBoolean("isCollidedVertically");
++ 		inPortal = data.getBoolean("inPortal");
++ 		inWater = data.getBoolean("inWater");
++ 		invulnerable = data.getBoolean("invulnerable");
 + 	}
 + 
 + 	public PluginData makePluginData() {
@@ -130,9 +148,18 @@
 + 		data.set("isCollided", isCollided);
 + 		data.set("isCollidedVertically", isCollidedVertically);
 + 		data.set("isCollidedHorizontally", isCollidedHorizontally);
++ 		data.set("onGround", onGround);
 + 		data.set("dimension", dimension);
 + 		data.set("id", entityId);
 + 		data.set("fallDistance", fallDistance);
++ 		data.set("noClip", noClip);
++ 		data.set("stepHeight", stepHeight);
++ 		data.set("isDead", isDead);
++ 		data.set("inPortal", inPortal);
++ 		data.set("inWater", inWater);
++ 		data.set("uuid", entityUniqueID.toString());
++ 		data.set("ticksExisted", ticksExisted);
++ 		data.set("invulnerable", invulnerable);
 + 		return data;
 + 	}
 + 

@@ -5,7 +5,12 @@
 # Version: 1.0
 # Author: lax1dude
 
-> DELETE  5  @  5 : 6
+> INSERT  2 : 4  @  2
+
++ import java.util.HashMap;
++ 
+
+> DELETE  3  @  3 : 4
 
 > INSERT  48 : 51  @  48
 
