@@ -8,3 +8,6 @@
   <li>Reload to use the plugin.</li>
   <li>Optional: If the plugin is not working, go to options > plugins and make sure it says 'LOADED' next to your plugin. If it doesn't, it's not my fault!!!</li>
 </ol>
+
+
+Here is a sample plugin that allows you to climb up walls like a spider:
