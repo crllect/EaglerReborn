@@ -91,11 +91,12 @@
 
 + import net.minecraft.util.StringTranslate;
 
-> CHANGE  6 : 9  @  6 : 26
+> CHANGE  6 : 10  @  6 : 26
 
 ~ import net.zxmushroom63.plugins.BaseData;
 ~ import net.zxmushroom63.plugins.PluginAPI;
 ~ import net.zxmushroom63.plugins.PluginData;
+~ import net.zxmushroom63.plugins.PluginLoader;
 
 > CHANGE  1 : 2  @  1 : 2
 
@@ -236,7 +237,10 @@
 
 ~ 			this.displayGuiScreen(new GuiScreenEditProfile(new GuiMainMenu()));
 
-> DELETE  5  @  5 : 17
+> CHANGE  5 : 7  @  5 : 17
+
+~ 		PluginLoader.loadPluginsFromLocalStorage();
+~ 		PluginLoader.loadPlugins(PluginLoader.plugins);
 
 > CHANGE  16 : 17  @  16 : 24
 

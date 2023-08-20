@@ -14,12 +14,23 @@
 
 > DELETE  2  @  2 : 3
 
-> INSERT  12 : 14  @  12
+> INSERT  3 : 4  @  3
+
++ import net.zxmushroom63.plugins.PluginGUI;
+
+> INSERT  9 : 11  @  9
 
 + 	private GuiButton notSoSuperSecret;
 + 	private GuiButton broadcastSettings;
 
-> CHANGE  46 : 48  @  46 : 48
+> INSERT  25 : 29  @  25
+
++ 		GuiButton pluginsButton = new GuiButton(9635329, 0, 0, 100, 20, "Plugins");
++ 		this.buttonList.add(pluginsButton);
++ 		++i;
++ 
+
+> CHANGE  21 : 23  @  21 : 23
 
 ~ 		this.buttonList.add(notSoSuperSecret = new GuiButton(8675309, this.width / 2 + 5, this.height / 6 + 48 - 6, 150,
 ~ 				20, "Super Secret Settings...") {
@@ -64,6 +75,10 @@
 ~ 				EagRuntime.toggleRec();
 ~ 				broadcastSettings.displayString = I18n.format(EagRuntime.getRecText(), new Object[0]);
 
-> DELETE  1  @  1 : 2
+> INSERT  2 : 5  @  2
+
++ 			if (parGuiButton.id == 9635329) {
++ 				PluginGUI.displayGui();
++ 			}
 
 > EOF
