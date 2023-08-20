@@ -237,7 +237,9 @@
 
 ~ 			this.displayGuiScreen(new GuiScreenEditProfile(new GuiMainMenu()));
 
-> DELETE  5  @  5 : 8
+> DELETE  1  @  1 : 2
+
+> DELETE  3  @  3 : 6
 
 > CHANGE  1 : 3  @  1 : 9
 

@@ -72,6 +72,7 @@ public class PluginAPI {
             "  PluginAPI.globals.toUpdate.forEach((id) => {\r\n" + //
             "    PluginAPI.globals.onGlobalsUpdate(id);\r\n" + //
             "  });\r\n" + //
+            "  PluginAPI.globals.toUpdate = [];\r\n" + //
             "};\r\n" + //
             "window.PluginAPI = PluginAPI;")
     private static native void init();

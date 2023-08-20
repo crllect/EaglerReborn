@@ -52,5 +52,6 @@ PluginAPI.globals._initUpdate = function _initUpdate() {
   PluginAPI.globals.toUpdate.forEach((id) => {
     PluginAPI.globals.onGlobalsUpdate(id);
   });
+  PluginAPI.globals.toUpdate = [];
 };
 window.PluginAPI = PluginAPI;
