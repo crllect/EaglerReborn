@@ -11,3 +11,7 @@
 
 
 Here is a sample plugin that allows you to climb up walls like a spider:
+https://raw.githubusercontent.com/ZXMushroom63/EaglerPL/main/plugins/spider.js
+
+And one that allows you to step up 9.5 blocks:
+https://raw.githubusercontent.com/ZXMushroom63/EaglerPL/main/plugins/step.js
