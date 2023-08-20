@@ -103,9 +103,7 @@ notice.href = "javascript:void(0)";
 notice.addEventListener("click", ()=>{
   location.reload();
 });
-container.innerHTML += "<br>";
-container.innerHTML += "<br>";
-notice.style = "color: orange;";
+notice.style = "color: orange; display: block; margin-top: 2rem;";
 container.appendChild(notice);
 
 document.body.appendChild(container);

@@ -108,9 +108,7 @@ public class PluginGUI {
             "notice.addEventListener(\"click\", ()=>{\r\n" + //
             "  location.reload();\r\n" + //
             "});\r\n" + //
-            "container.innerHTML += \"<br>\";\r\n" + //
-            "container.innerHTML += \"<br>\";\r\n" + //
-            "notice.style = \"color: orange;\";\r\n" + //
+            "notice.style = \"color: orange; display: block; margin-top: 2rem;\";\r\n" + //
             "container.appendChild(notice);\r\n" + //
             "\r\n" + //
             "document.body.appendChild(container);")
