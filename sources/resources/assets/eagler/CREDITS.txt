@@ -29,6 +29,14 @@ OtterDev/OtterCodes101:
   - Added seamless fullscreen
   - Created the replit
 
+EaglerPL - Plugin System
+~~~~~~~~~~~~~~~~~~~~~~~~
+ ZXMushroom63:
+ 
+  - Added the event and globals API for the plugin system.
+  - Added a skip button for the start screen!!!!!!!!!!! Wow!
+
+
 
 
  Code used within Eagler Reborn
