@@ -21,7 +21,7 @@ public class PluginGUI {
             "var plugins = JSON.parse(localStorage.getItem(\"pl::plugins\"));\r\n" + //
             "var container = document.createElement(\"div\");\r\n" + //
             "container.id = \"eaglerpl_gui\";\r\n" + //
-            "container.style = `width:100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 10; backdrop-filter: blur(4px); background: rgba(0, 0, 0, 0.5); color: white; font-family: sans-serif; user-select: none;`;\r\n" + //
+            "container.style = `width:100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 10; backdrop-filter: blur(4px); background: rgba(0, 0, 0, 0.5); color: white; font-family: sans-serif; user-select: none; overflow-y: scroll; overflow-x: scroll;`;\r\n" + //
             "var title = document.createElement(\"h1\");\r\n" + //
             "title.innerHTML = \"Plugin Manager\";\r\n" + //
             "var closeButton = document.createElement(\"a\");\r\n" + //

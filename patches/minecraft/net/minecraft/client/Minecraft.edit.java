@@ -221,9 +221,8 @@
 
 + 		SkinPreviewRenderer.initialize();
 
-> INSERT  2 : 6  @  2
+> INSERT  2 : 5  @  2
 
-+ 
 + 		ServerList.initServerList(this);
 + 		EaglerProfile.read();
 + 
