@@ -22,9 +22,9 @@ title.innerHTML = "Plugin Manager";
 var closeButton = document.createElement("a");
 closeButton.style = `margin-left: 2rem; color: red; text-decoration: none;`;
 closeButton.href = "javascript:void(0)";
-closeButton.onclick = () => {
+closeButton.addEventListener("click", ()=>{
   document.querySelector("#eaglerpl_gui").remove();
-};
+});
 closeButton.innerHTML = "[X]";
 title.appendChild(closeButton);
 container.appendChild(title);
@@ -97,8 +97,15 @@ addBtn.addEventListener("click", () => {
 container.appendChild(table);
 container.appendChild(addBtn);
 
-var notice = document.createElement("h5");
+var notice = document.createElement("a");
 notice.innerHTML = "Reload to use new plugins.";
+notice.href = "javascript:void(0)";
+notice.addEventListener("click", ()=>{
+  location.reload();
+});
+container.innerHTML += "<br>";
+container.innerHTML += "<br>";
+notice.style = "color: orange;";
 container.appendChild(notice);
 
 document.body.appendChild(container);

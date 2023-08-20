@@ -27,9 +27,9 @@ public class PluginGUI {
             "var closeButton = document.createElement(\"a\");\r\n" + //
             "closeButton.style = `margin-left: 2rem; color: red; text-decoration: none;`;\r\n" + //
             "closeButton.href = \"javascript:void(0)\";\r\n" + //
-            "closeButton.onclick = () => {\r\n" + //
+            "closeButton.addEventListener(\"click\", ()=>{\r\n" + //
             "  document.querySelector(\"#eaglerpl_gui\").remove();\r\n" + //
-            "};\r\n" + //
+            "});\r\n" + //
             "closeButton.innerHTML = \"[X]\";\r\n" + //
             "title.appendChild(closeButton);\r\n" + //
             "container.appendChild(title);\r\n" + //
@@ -102,8 +102,15 @@ public class PluginGUI {
             "container.appendChild(table);\r\n" + //
             "container.appendChild(addBtn);\r\n" + //
             "\r\n" + //
-            "var notice = document.createElement(\"h5\");\r\n" + //
+            "var notice = document.createElement(\"a\");\r\n" + //
             "notice.innerHTML = \"Reload to use new plugins.\";\r\n" + //
+            "notice.href = \"javascript:void(0)\";\r\n" + //
+            "notice.addEventListener(\"click\", ()=>{\r\n" + //
+            "  location.reload();\r\n" + //
+            "});\r\n" + //
+            "container.innerHTML += \"<br>\";\r\n" + //
+            "container.innerHTML += \"<br>\";\r\n" + //
+            "notice.style = \"color: orange;\";\r\n" + //
             "container.appendChild(notice);\r\n" + //
             "\r\n" + //
             "document.body.appendChild(container);")

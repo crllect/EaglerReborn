@@ -237,7 +237,9 @@
 
 ~ 			this.displayGuiScreen(new GuiScreenEditProfile(new GuiMainMenu()));
 
-> CHANGE  5 : 7  @  5 : 17
+> DELETE  5  @  5 : 8
+
+> CHANGE  1 : 3  @  1 : 9
 
 ~ 		PluginLoader.loadPluginsFromLocalStorage();
 ~ 		PluginLoader.loadPlugins(PluginLoader.plugins);
