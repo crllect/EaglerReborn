@@ -70,7 +70,7 @@ public class PluginAPI {
             "};\r\n" + //
             "PluginAPI.globals._initUpdate = function _initUpdate() {\r\n" + //
             "  PluginAPI.globals.toUpdate.forEach((id) => {\r\n" + //
-            "    PluginAPI.globals.onGlobalsUpdate();\r\n" + //
+            "    PluginAPI.globals.onGlobalsUpdate(id);\r\n" + //
             "  });\r\n" + //
             "};\r\n" + //
             "window.PluginAPI = PluginAPI;")

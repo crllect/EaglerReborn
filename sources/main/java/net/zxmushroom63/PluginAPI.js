@@ -50,7 +50,7 @@ PluginAPI.updateComponent = function updateComponent(component) {
 };
 PluginAPI.globals._initUpdate = function _initUpdate() {
   PluginAPI.globals.toUpdate.forEach((id) => {
-    PluginAPI.globals.onGlobalsUpdate();
+    PluginAPI.globals.onGlobalsUpdate(id);
   });
 };
 window.PluginAPI = PluginAPI;
