@@ -277,10 +277,12 @@
 + 	 * of handleWaterMovement() returning true)
 + 	 */
 
-> INSERT  4 : 118  @  4
+> INSERT  4 : 211  @  4
 
 + 	public void loadPluginData(BaseData data) {
-+ 		setPosition(data.getDouble("x"), data.getDouble("y"), data.getDouble("z"));
++ 		posX = data.getDouble("x");
++ 		posY = data.getDouble("y");
++ 		posZ = data.getDouble("z");
 + 		motionX = data.getDouble("motionX");
 + 		motionY = data.getDouble("motionY");
 + 		motionZ = data.getDouble("motionZ");
@@ -299,6 +301,7 @@
 + 		invulnerable = data.getBoolean("invulnerable");
 + 		isImmuneToFire = data.getBoolean("isImmuneToFire");
 + 		isOutsideBorder = data.getBoolean("isOutsideBorder");
++ 		entityCollisionReduction = data.getFloat("entityCollisionReduction");
 + 	}
 + 
 + 	public PluginData makePluginData() {
@@ -306,6 +309,9 @@
 + 		data.set("x", posX);
 + 		data.set("y", posY);
 + 		data.set("z", posZ);
++ 		data.set("chunkCoordX", chunkCoordX);
++ 		data.set("chunkCoordY", chunkCoordY);
++ 		data.set("chunkCoordZ", chunkCoordZ);
 + 		data.set("motionX", motionX);
 + 		data.set("motionY", motionY);
 + 		data.set("motionZ", motionZ);
@@ -325,12 +331,16 @@
 + 		data.set("inPortal", inPortal);
 + 		data.set("inWater", inWater);
 + 		data.set("isAirBorne", isAirBorne);
-+ 		data.set("uuid", entityUniqueID.toString());
 + 		data.set("ticksExisted", ticksExisted);
 + 		data.set("invulnerable", invulnerable);
 + 		data.set("isImmuneToFire", isImmuneToFire);
 + 		data.set("isOutsideBorder", isOutsideBorder);
++ 		data.set("entityCollisionReduction", entityCollisionReduction);
++ 		data.set("ticksExisted", ticksExisted);
 + 
++ 		data.setCallbackString("getUUID", () -> {
++ 			return entityUniqueID.toString();
++ 		});
 + 		data.setCallbackBoolean("isBurning", () -> {
 + 			return isBurning();
 + 		});
@@ -386,6 +396,89 @@
 + 			return isWet();
 + 		});
 + 
++ 		data.setCallbackVoidWithDataArg("setAir", (BaseData params) -> {
++ 			setAir(params.getInt("air"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setAlwaysRenderNameTag", (BaseData params) -> {
++ 			setAlwaysRenderNameTag(params.getBoolean("alwaysRenderNameTag"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setAngles", (BaseData params) -> {
++ 			setAngles(params.getFloat("yaw"), params.getFloat("pitch"));
++ 		});
++ 		data.setCallbackVoid("setBeenAttacked", () -> {
++ 			setBeenAttacked();
++ 		});
++ 		data.setCallbackVoidWithDataArg("setCustomNameTag", (BaseData params) -> {
++ 			setCustomNameTag(params.getString("name"));
++ 		});
++ 		data.setCallbackVoid("setDead", () -> {
++ 			setDead();
++ 		});
++ 		data.setCallbackVoidWithDataArg("setEating", (BaseData params) -> {
++ 			setEating(params.getBoolean("eating"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setEntityId", (BaseData params) -> {
++ 			setEntityId(params.getInt("id"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setFire", (BaseData params) -> {
++ 			setFire(params.getInt("seconds"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setFlag", (BaseData params) -> {
++ 			setFlag(params.getInt("flag"), params.getBoolean("set"));
++ 		});
++ 		data.setCallbackVoid("setInWeb", () -> {
++ 			setInWeb();
++ 		});
++ 		data.setCallbackVoidWithDataArg("setInvisible", (BaseData params) -> {
++ 			setInvisible(params.getBoolean("invisible"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setLocationAndAngles", (BaseData params) -> {
++ 			setLocationAndAngles(params.getDouble("x"), params.getDouble("y"), params.getDouble("z"),
++ 					params.getFloat("yaw"), params.getFloat("pitch"));
++ 		});
++ 		data.setCallbackVoid("setOnFireFromLava", () -> {
++ 			setOnFireFromLava();
++ 		});
++ 		data.setCallbackVoidWithDataArg("setOutsideBorder", (BaseData params) -> {
++ 			setOutsideBorder(params.getBoolean("outsideBorder"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setPosition", (BaseData params) -> {
++ 			setPosition(params.getDouble("x"), params.getDouble("y"), params.getDouble("z"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setPositionAndRotation", (BaseData params) -> {
++ 			setPositionAndRotation(params.getDouble("x"), params.getDouble("y"), params.getDouble("z"),
++ 					params.getFloat("yaw"), params.getFloat("pitch"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setPositionAndRotation2", (BaseData params) -> {
++ 			setPositionAndRotation2(params.getDouble("d0"), params.getDouble("d1"), params.getDouble("d2"),
++ 					params.getFloat("f"), params.getFloat("f1"), params.getInt("var9"), params.getBoolean("var10"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setPositionAndUpdate", (BaseData params) -> {
++ 			setPositionAndUpdate(params.getDouble("d0"), params.getDouble("d1"), params.getDouble("d2"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setRotation", (BaseData params) -> {
++ 			setRotation(params.getFloat("yaw"), params.getFloat("pitch"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setRotationYawHead", (BaseData params) -> {
++ 			setRotationYawHead(params.getFloat("rotation"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setSilent", (BaseData params) -> {
++ 			setSilent(params.getBoolean("isSilent"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setSize", (BaseData params) -> {
++ 			setSize(params.getFloat("f"), params.getFloat("f1"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setSneaking", (BaseData params) -> {
++ 			setSneaking(params.getBoolean("sneaking"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setSprinting", (BaseData params) -> {
++ 			setSprinting(params.getBoolean("flag"));
++ 		});
++ 		data.setCallbackVoidWithDataArg("setVelocity", (BaseData params) -> {
++ 			setVelocity(params.getDouble("x"), params.getDouble("y"), params.getDouble("z"));
++ 		});
++ 
++ 		// Todo: add getters
 + 		return data;
 + 	}
 + 
