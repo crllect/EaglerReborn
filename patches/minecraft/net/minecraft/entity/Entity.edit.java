@@ -277,7 +277,7 @@
 + 	 * of handleWaterMovement() returning true)
 + 	 */
 
-> INSERT  4 : 211  @  4
+> INSERT  4 : 212  @  4
 
 + 	public void loadPluginData(BaseData data) {
 + 		posX = data.getDouble("x");
@@ -338,9 +338,6 @@
 + 		data.set("entityCollisionReduction", entityCollisionReduction);
 + 		data.set("ticksExisted", ticksExisted);
 + 
-+ 		data.setCallbackString("getUUID", () -> {
-+ 			return entityUniqueID.toString();
-+ 		});
 + 		data.setCallbackBoolean("isBurning", () -> {
 + 			return isBurning();
 + 		});
@@ -478,7 +475,11 @@
 + 			setVelocity(params.getDouble("x"), params.getDouble("y"), params.getDouble("z"));
 + 		});
 + 
-+ 		// Todo: add getters
++ 		// Todo: add other getters and other functions. When I get told to! hahhahahah
++ 		data.setCallbackString("getUUID", () -> {
++ 			return entityUniqueID.toString();
++ 		});
++ 
 + 		return data;
 + 	}
 + 

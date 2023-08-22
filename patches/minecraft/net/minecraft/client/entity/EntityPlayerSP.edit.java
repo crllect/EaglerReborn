@@ -34,10 +34,9 @@
 
 + 		this.statWriter = statWriter;
 
-> INSERT  19 : 21  @  19
+> INSERT  19 : 20  @  19
 
-+ 			PluginAPI.setGlobal("player", this.makePluginData());
-+ 			PluginAPI.callEvent("update", new PluginData());
++ 			mc.pluginApi.onUpdate();
 
 > INSERT  8 : 9  @  8
 

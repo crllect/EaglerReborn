@@ -122,4 +122,9 @@ public class PluginAPI {
             pluginAPI.onGlobalUpdated(name);
         });
     }
+
+    public void onUpdate() {
+        PluginAPI.setGlobal("player", mc.thePlayer.makePluginData());
+		PluginAPI.callEvent("update", new PluginData());
+    }
 }
