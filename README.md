@@ -68,8 +68,10 @@ make sure to set it to "blank repl"
 - cannot add a port to the address of the server(for example example.com:25565 is not allowed)
 
 
+
 ### Installing Plugins
 [How to install plugins](InstallingPlugins.md)
 
 ### Plugin API Documentation
 [PluginAPI.md](plugindocs/PluginAPI.md)
+=======
