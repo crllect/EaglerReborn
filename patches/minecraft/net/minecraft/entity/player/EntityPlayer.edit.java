@@ -41,7 +41,7 @@
 
 ~ 		this.inventoryContainer = new ContainerPlayer(this.inventory, false, this);
 
-> INSERT  22 : 73  @  22
+> INSERT  22 : 77  @  22
 
 + 	@Override
 + 	public void loadPluginData(BaseData data) {
@@ -53,7 +53,9 @@
 + 		experience = data.getFloat("experience");
 + 		experienceLevel = data.getInt("experienceLevel");
 + 		experienceTotal = data.getInt("experienceTotal");
-+ 		fishEntity.loadPluginData(data.getBaseData("fishEntity"));
++ 		if (fishEntity != null) {
++ 			fishEntity.loadPluginData(data.getBaseData("fishEntity"));
++ 		}
 + 		flyToggleTimer = data.getInt("flyToggleTimer");
 + 		hasReducedDebug = data.getBoolean("hasReducedDebug");
 + 		lastXPSound = data.getInt("lastXPSound");
@@ -76,7 +78,9 @@
 + 		data.set("experience", experience);
 + 		data.set("experienceLevel", experienceLevel);
 + 		data.set("experienceTotal", experienceTotal);
-+ 		data.set("fishEntity", fishEntity.makePluginData());
++ 		if (fishEntity != null) {
++ 			data.set("fishEntity", fishEntity.makePluginData());
++ 		}
 + 		data.set("flyToggleTimer", flyToggleTimer);
 + 		data.set("hasReducedDebug", hasReducedDebug);
 + 		data.set("itemInUseCount", itemInUseCount);

@@ -69,12 +69,16 @@ public class PluginAPI {
             "  }\r\n" + //
             "};\r\n" + //
             "PluginAPI.globals._initUpdate = function _initUpdate() {\r\n" + //
+            "  if (!PluginAPI.globals.toUpdate) {\r\n" + //
+            "    PluginAPI.globals.toUpdate = [];\r\n" + //
+            "  }\r\n" + //
             "  PluginAPI.globals.toUpdate.forEach((id) => {\r\n" + //
             "    PluginAPI.globals.onGlobalsUpdate(id);\r\n" + //
             "  });\r\n" + //
             "  PluginAPI.globals.toUpdate = [];\r\n" + //
             "};\r\n" + //
-            "window.PluginAPI = PluginAPI;")
+            "window.PluginAPI = PluginAPI;\r\n" + //
+            "")
     private static native void init();
 
     @JSBody(params = { "name" }, script = "PluginAPI.events.newEvent(name);")
