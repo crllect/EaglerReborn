@@ -4,10 +4,11 @@ var GrappleHookPlugin = {
   scaleH: 0.25,
   scaleV: 0.15,
   lift: 0.4,
+  crouchToCancel: true
 };
 PluginAPI.addEventListener("update", () => {
   if (!PluginAPI.player.fishEntity) {
-    if (GrappleHookPlugin.prev === "GROUND") {
+    if (GrappleHookPlugin.prev === "GROUND" && (!GrappleHookPlugin.crouchToCancel || !PluginAPI.player.isSneaking())) {
       GrappleHookPlugin.prev = "NONE";
       var mx = GrappleHookPlugin.oldXYZ[0] - PluginAPI.player.x;
       var my = GrappleHookPlugin.oldXYZ[1] - PluginAPI.player.y;
