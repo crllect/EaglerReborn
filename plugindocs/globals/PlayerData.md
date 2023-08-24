@@ -10,7 +10,7 @@ All of the properties of [EntityData](EntityData.md), and:
 - `experience`: Number: The player's experience number.
 - `experienceLevel`: Integer: The player's experience level.
 - `experienceTotal`: Integer: The player's experience total.
-- `fishEntity`: [EntityData](EntityData.md): The player's fishing bobber / hook.
+- `fishEntity`: [FishHookData](FishHookData.md): The player's fishing bobber / hook. (If existing)
 - `flyToggleTimer`: Integer: Equal to the player's `flyToggleTimer`.
 - `hasReducedDebug`: Boolean: Equal to the player's `hasReducedDebug`.
 - `itemInUseCount`: Integer: The count of the item that the player is currenly using. (Read-only)
