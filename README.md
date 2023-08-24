@@ -73,6 +73,7 @@ make sure to set it to "blank repl"
 [How to install plugins](InstallingPlugins.md)
 
 ### Plugin API Documentation
+
 [PluginAPI.md](plugindocs/PluginAPI.md)
 
 =======
