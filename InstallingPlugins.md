@@ -1,5 +1,7 @@
 <h2>How to install a plugin</h2>
+
 <i>Please keep in mind that these plugins are fully client side and therefore work on most servers. They can be considered hacks or unfair advantages, so be careful when using them.</i>
+
 <ol>
   <li>Open the compiled client</li>
   <li>Open options</li>
