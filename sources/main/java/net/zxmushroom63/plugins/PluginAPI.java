@@ -16,6 +16,7 @@ import java.util.Map;
 
 public class PluginAPI {
     private Minecraft mc;
+    public ArrayList<String> requiredList;
     public static final Logger logger = LogManager.getLogger();
 
     @JSBody(params = {}, script = "var PluginAPI = {};\r\n" + //
@@ -68,6 +69,19 @@ public class PluginAPI {
             "    PluginAPI.globals.toUpdate.push(component);\r\n" + //
             "  }\r\n" + //
             "};\r\n" + //
+            "PluginAPI.require = function require(component) {\r\n" + //
+            "  if (\r\n" + //
+            "    typeof component !== \"string\" ||\r\n" + //
+            "    PluginAPI[component] === null ||\r\n" + //
+            "    PluginAPI[component] === undefined\r\n" + //
+            "  ) {\r\n" + //
+            "    return;\r\n" + //
+            "  }\r\n" + //
+            "  if (!PluginAPI.globals || !PluginAPI.globals.onRequire) {\r\n" + //
+            "    return;\r\n" + //
+            "  }\r\n" + //
+            "  PluginAPI.globals.onRequire(component);\r\n" + //
+            "}\r\n" + //
             "PluginAPI.globals._initUpdate = function _initUpdate() {\r\n" + //
             "  if (!PluginAPI.globals.toUpdate) {\r\n" + //
             "    PluginAPI.globals.toUpdate = [];\r\n" + //
@@ -109,8 +123,16 @@ public class PluginAPI {
         }
     }
 
+    public void onRequire(String global) {
+        if(!requiredList.contains(global)){
+            requiredList.add(global);
+        }
+    }
+
     public PluginAPI(Minecraft mcIn) {
         this.mc = mcIn;
+        requiredList = new ArrayList<String>();
+        requiredList.add("player");
         init();
         newEvent("sendchatmessage");
         newEvent("key");
@@ -119,6 +141,7 @@ public class PluginAPI {
         newEvent("premotionupdate");
 
         globalsFunctor(this);
+        globalsRequireFunctor(this);
     }
 
     static void globalsFunctor(PluginAPI pluginAPI) {
@@ -127,8 +150,16 @@ public class PluginAPI {
         });
     }
 
+    static void globalsRequireFunctor(PluginAPI pluginAPI) {
+        GlobalsListener.provideRequireCallback((String name)->{
+            pluginAPI.onRequire(name);
+        });
+    }
+
     public void onUpdate() {
-        PluginAPI.setGlobal("player", mc.thePlayer.makePluginData());
+        if (requiredList.contains("player")) {
+            PluginAPI.setGlobal("player", mc.thePlayer.makePluginData());
+        }
 		PluginAPI.callEvent("update", new PluginData());
     }
 }

@@ -206,12 +206,19 @@ public class MainClass {
 		void call(String message, String file, int line, int col, JSError error);
 	}
 	
-	@JSBody(params = { "handler" }, script = "window.addEventListener(\"error\", function(e) { handler("
-			+ "(typeof e.message === \"string\") ? e.message : null,"
-			+ "(typeof e.filename === \"string\") ? e.filename : null,"
-			+ "(typeof e.lineno === \"number\") ? e.lineno : 0,"
-			+ "(typeof e.colno === \"number\") ? e.colno : 0,"
-			+ "(typeof e.error === \"undefined\") ? null : e.error); });")
+	@JSBody(params = { "handler" }, script = "window.addEventListener(\"error\", function (e) {\r\n" + //
+			"  if(window.pluginGracePeriod === true){\r\n" + //
+			"    console.log(\"Suppressed crash.\")\r\n" + //
+			"    return; //Nothing to see here!\r\n" + //
+			"  }\r\n" + //
+			"  handler(\r\n" + //
+			"    typeof e.message === \"string\" ? e.message : null,\r\n" + //
+			"    typeof e.filename === \"string\" ? e.filename : null,\r\n" + //
+			"    typeof e.lineno === \"number\" ? e.lineno : 0,\r\n" + //
+			"    typeof e.colno === \"number\" ? e.colno : 0,\r\n" + //
+			"    typeof e.error === \"undefined\" ? null : e.error\r\n" + //
+			"  );\r\n" + //
+			"});")
 	public static native void setWindowErrorHandler(WindowErrorHandler handler);
 	
 	public static void showCrashScreen(String message, Throwable t) {

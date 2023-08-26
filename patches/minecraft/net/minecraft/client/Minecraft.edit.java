@@ -240,8 +240,9 @@
 
 > DELETE  3  @  3 : 6
 
-> CHANGE  1 : 3  @  1 : 9
+> CHANGE  1 : 4  @  1 : 9
 
+~ 		PluginLoader.loadLoader();
 ~ 		PluginLoader.loadPluginsFromLocalStorage();
 ~ 		PluginLoader.loadPlugins(PluginLoader.plugins);
 

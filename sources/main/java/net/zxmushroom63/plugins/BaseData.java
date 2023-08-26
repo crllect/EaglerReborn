@@ -105,6 +105,33 @@ public abstract class BaseData implements JSObject {
     public native void set(String key, BaseData value);
 
     @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void set(String key, String[] value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void set(String key, int[] value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void set(String key, boolean[] value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void set(String key, float[] value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void set(String key, byte[] value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void set(String key, char[] value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void set(String key, double[] value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void set(String key, JSObject[] value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void set(String key, BaseData[] value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
     public native void setCallbackVoid(String key, VoidCallback value);
 
     @JSBody(params = { "key", "value" }, script = "this[key]=value;")
@@ -166,6 +193,35 @@ public abstract class BaseData implements JSObject {
 
     @JSBody(params = { "key" }, script = "return this[key];")
     public native BaseData getBaseData(String key);
+
+
+    @JSBody(params = { "key" }, script = "return this[key];")
+    public native String[] getStringArr(String key);
+
+    @JSBody(params = { "key" }, script = "return this[key];")
+    public native int[] getIntArr(String key);
+
+    @JSBody(params = { "key" }, script = "return this[key];")
+    public native boolean[] getBooleanArr(String key);
+
+    @JSBody(params = { "key" }, script = "return this[key];")
+    public native float[] getFloatArr(String key);
+
+    @JSBody(params = { "key" }, script = "return this[key];")
+    public native byte[] getByteArr(String key);
+
+    @JSBody(params = { "key" }, script = "return this[key];")
+    public native char[] getCharArr(String key);
+
+    @JSBody(params = { "key" }, script = "return this[key];")
+    public native double[] getDoubleArr(String key);
+
+    @JSBody(params = { "key" }, script = "return this[key];")
+    public native JSObject[] getObjectArr(String key);
+
+    @JSBody(params = { "key" }, script = "return this[key];")
+    public native BaseData[] getBaseDataArr(String key);
+
 
     @JSBody(params = { "key" }, script = "return key in this;")
     public native boolean has(String key);

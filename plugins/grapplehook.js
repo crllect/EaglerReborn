@@ -1,3 +1,4 @@
+PluginAPI.require("player");
 var GrappleHookPlugin = {
   oldXYZ: [0, 0, 0],
   prev: "NONE",

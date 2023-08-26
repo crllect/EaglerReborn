@@ -48,6 +48,19 @@ PluginAPI.updateComponent = function updateComponent(component) {
     PluginAPI.globals.toUpdate.push(component);
   }
 };
+PluginAPI.require = function require(component) {
+  if (
+    typeof component !== "string" ||
+    PluginAPI[component] === null ||
+    PluginAPI[component] === undefined
+  ) {
+    return;
+  }
+  if (!PluginAPI.globals || !PluginAPI.globals.onRequire) {
+    return;
+  }
+  PluginAPI.globals.onRequire(component);
+}
 PluginAPI.globals._initUpdate = function _initUpdate() {
   if (!PluginAPI.globals.toUpdate) {
     PluginAPI.globals.toUpdate = [];
