@@ -70,10 +70,10 @@ make sure to set it to "blank repl"
 
 
 ### Installing Plugins
-[How to install plugins](InstallingPlugins.md)
+[How to install plugins](https://eaglerreborn.github.io/guide/InstallingPlugins.html)
 
 ### Plugin API Documentation
 
-[PluginAPI.md](plugindocs/PluginAPI.md)
+[PluginAPI.md](https://eaglerreborn.github.io/guide/plugindocs)
 
 =======
