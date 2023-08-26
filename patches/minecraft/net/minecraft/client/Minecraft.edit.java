@@ -487,13 +487,14 @@
 + 					KeyBinding.setKeyBindState(gameSettings.keyBindSprint.getKeyCode(), Keyboard.getEventKeyState());
 + 				}
 
-> CHANGE  26 : 37  @  26 : 27
+> CHANGE  26 : 38  @  26 : 27
 
 ~ 
 ~ 						PluginData event = new PluginData();
 ~ 						event.set("key", k);
 ~ 						event.set("preventDefault", false);
 ~ 						BaseData newEvent = PluginAPI.callEvent("key", event);
+~ 
 ~ 						if (newEvent.has("preventDefault") && newEvent.getBoolean("preventDefault")) {
 ~ 							return;
 ~ 						}

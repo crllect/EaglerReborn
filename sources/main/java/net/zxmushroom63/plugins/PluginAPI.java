@@ -19,11 +19,12 @@ public class PluginAPI {
     public ArrayList<String> requiredList;
     public static final Logger logger = LogManager.getLogger();
 
-    @JSBody(params = {}, script = "var PluginAPI = {};\r\n" + //
+    @JSBody(params = { "version" }, script = "var PluginAPI = {};\r\n" + //
             "PluginAPI.events = {};\r\n" + //
             "PluginAPI.events.types = [];\r\n" + //
             "PluginAPI.events.listeners = {};\r\n" + //
             "PluginAPI.globals = {};\r\n" + //
+            "PluginAPI.version = version;\r\n" + //
             "PluginAPI.addEventListener = function addEventListener(name, callback) {\r\n" + //
             "  if (PluginAPI.events.types.includes(name)) {\r\n" + //
             "    if (!Array.isArray(PluginAPI.events.listeners[name])) {\r\n" + //
@@ -91,9 +92,8 @@ public class PluginAPI {
             "  });\r\n" + //
             "  PluginAPI.globals.toUpdate = [];\r\n" + //
             "};\r\n" + //
-            "window.PluginAPI = PluginAPI;\r\n" + //
-            "")
-    private static native void init();
+            "window.PluginAPI = PluginAPI;")
+    private static native void init(String version);
 
     @JSBody(params = { "name" }, script = "PluginAPI.events.newEvent(name);")
     private static native void newEvent(String name);
@@ -133,7 +133,7 @@ public class PluginAPI {
         this.mc = mcIn;
         requiredList = new ArrayList<String>();
         requiredList.add("player");
-        init();
+        init("a0.1");
         newEvent("sendchatmessage");
         newEvent("key");
         newEvent("update");

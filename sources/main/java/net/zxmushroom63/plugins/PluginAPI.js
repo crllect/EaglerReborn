@@ -3,6 +3,7 @@ PluginAPI.events = {};
 PluginAPI.events.types = [];
 PluginAPI.events.listeners = {};
 PluginAPI.globals = {};
+PluginAPI.version = version;
 PluginAPI.addEventListener = function addEventListener(name, callback) {
   if (PluginAPI.events.types.includes(name)) {
     if (!Array.isArray(PluginAPI.events.listeners[name])) {
