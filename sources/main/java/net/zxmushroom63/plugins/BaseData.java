@@ -43,6 +43,36 @@ public abstract class BaseData implements JSObject {
     }
 
     @JSFunctor
+    public interface BooleanCallbackArr extends JSObject {
+        boolean[] onCallback();
+    }
+
+    @JSFunctor
+    public interface ObjectCallbackArr extends JSObject {
+        JSObject[] onCallback();
+    }
+
+    @JSFunctor
+    public interface FloatCallbackArr extends JSObject {
+        float[] onCallback();
+    }
+
+    @JSFunctor
+    public interface DoubleCallbackArr extends JSObject {
+        double[] onCallback();
+    }
+
+    @JSFunctor
+    public interface StringCallbackArr extends JSObject {
+        String[] onCallback();
+    }
+
+    @JSFunctor
+    public interface IntCallbackArr extends JSObject {
+        int[] onCallback();
+    }
+
+    @JSFunctor
     public interface DataVoidCallback extends JSObject {
         void onCallback(BaseData data);
     }
@@ -75,6 +105,36 @@ public abstract class BaseData implements JSObject {
     @JSFunctor
     public interface DataIntCallback extends JSObject {
         int onCallback(BaseData data);
+    }
+
+    @JSFunctor
+    public interface DataBooleanCallbackArr extends JSObject {
+        boolean[] onCallback(BaseData data);
+    }
+
+    @JSFunctor
+    public interface DataObjectCallbackArr extends JSObject {
+        JSObject[] onCallback(BaseData data);
+    }
+
+    @JSFunctor
+    public interface DataFloatCallbackArr extends JSObject {
+        float[] onCallback(BaseData data);
+    }
+
+    @JSFunctor
+    public interface DataDoubleCallbackArr extends JSObject {
+        double[] onCallback(BaseData data);
+    }
+
+    @JSFunctor
+    public interface DataStringCallbackArr extends JSObject {
+        String[] onCallback(BaseData data);
+    }
+
+    @JSFunctor
+    public interface DataIntCallbackArr extends JSObject {
+        int[] onCallback(BaseData data);
     }
 
     @JSBody(params = { "key", "value" }, script = "this[key]=value;")
@@ -150,6 +210,9 @@ public abstract class BaseData implements JSObject {
     public native void setCallbackFloat(String key, FloatCallback value);
 
     @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackObject(String key, ObjectCallback value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
     public native void setCallbackBooleanWithDataArg(String key, DataBooleanCallback value);
 
     @JSBody(params = { "key", "value" }, script = "this[key]=value;")
@@ -165,7 +228,46 @@ public abstract class BaseData implements JSObject {
     public native void setCallbackStringWithDataArg(String key, DataStringCallback value);
 
     @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackObjectWithDataArg(String key, DataObjectCallback value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
     public native void setCallbackVoidWithDataArg(String key, DataVoidCallback value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackBooleanArrWithDataArg(String key, DataBooleanCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackDoubleArrWithDataArg(String key, DataDoubleCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackFloatArrWithDataArg(String key, DataFloatCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackIntArrWithDataArg(String key, DataIntCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackStringArrWithDataArg(String key, DataStringCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackObjectArrWithDataArg(String key, DataObjectCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackBooleanArr(String key, BooleanCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackIntArr(String key, IntCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackStringArr(String key, StringCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackDoubleArr(String key, DoubleCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackFloatArr(String key, FloatCallbackArr value);
+
+    @JSBody(params = { "key", "value" }, script = "this[key]=value;")
+    public native void setCallbackObjectArr(String key, ObjectCallbackArr value);
 
     @JSBody(params = { "key" }, script = "return this[key];")
     public native String getString(String key);
