@@ -366,7 +366,7 @@
 + 	 * of handleWaterMovement() returning true)
 + 	 */
 
-> INSERT  4 : 342  @  4
+> INSERT  4 : 343  @  4
 
 + 	public void loadPluginData(BaseData data) {
 + 		posX = data.getDouble("x");
@@ -670,15 +670,16 @@
 + 		data.setCallbackString("getName", () -> {
 + 			return getName();
 + 		});
-+ 		data.setCallbackObjectArr("getParts", () -> {
-+ 			// Hopefully no infinite call stack!
-+ 			Entity[] entityArr = getParts();
-+ 			PluginData[] arr = new PluginData[entityArr.length];
-+ 			for (int i = 0; i < entityArr.length; i++) {
-+ 				arr[i] = entityArr[i].makePluginData();
-+ 			}
-+ 			return arr;
-+ 		});
++ 		// Doesn't work, so I commented it out.
++ 		// data.setCallbackObjectArr("getParts", () -> {
++ 		// //Hopefully no infinite call stack!
++ 		// Entity[] entityArr = getParts();
++ 		// PluginData[] arr = new PluginData[entityArr.length];
++ 		// for (int i = 0; i < entityArr.length; i++) {
++ 		// arr[i] = entityArr[i].makePluginData();
++ 		// }
++ 		// return arr;
++ 		// });
 + 		data.setCallbackInt("getPortalCooldown", () -> {
 + 			return getPortalCooldown();
 + 		});
