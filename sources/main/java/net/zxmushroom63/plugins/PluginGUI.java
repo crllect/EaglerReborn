@@ -28,13 +28,13 @@ public class PluginGUI {
             "  var closeButton = document.createElement(\"a\");\r\n" + //
             "  closeButton.style = `margin-left: 2rem; color: red; text-decoration: none;`;\r\n" + //
             "  closeButton.href = \"javascript:void(0)\";\r\n" + //
-            "  closeButton.addEventListener(\"click\", ()=>{\r\n" + //
+            "  closeButton.addEventListener(\"click\", () => {\r\n" + //
             "    document.querySelector(\"#eaglerpl_gui\").remove();\r\n" + //
             "  });\r\n" + //
             "  closeButton.innerHTML = \"[X]\";\r\n" + //
             "  title.appendChild(closeButton);\r\n" + //
             "  container.appendChild(title);\r\n" + //
-            "  \r\n" + //
+            "\r\n" + //
             "  var table = document.createElement(\"table\");\r\n" + //
             "  var headerRow = document.createElement(\"tr\");\r\n" + //
             "  headerRow.style = \"background: rgb(50,50,50);\";\r\n" + //
@@ -45,7 +45,7 @@ public class PluginGUI {
             "  statusBox.innerHTML = \"Status\";\r\n" + //
             "  headerRow.appendChild(statusBox);\r\n" + //
             "  table.appendChild(headerRow);\r\n" + //
-            "  \r\n" + //
+            "\r\n" + //
             "  plugins.forEach((url) => {\r\n" + //
             "    var row = document.createElement(\"tr\");\r\n" + //
             "    var urlBox = document.createElement(\"td\");\r\n" + //
@@ -87,7 +87,7 @@ public class PluginGUI {
             "    row.appendChild(statusBox);\r\n" + //
             "    table.appendChild(row);\r\n" + //
             "  });\r\n" + //
-            "  \r\n" + //
+            "\r\n" + //
             "  var addBtn = document.createElement(\"button\");\r\n" + //
             "  addBtn.style = \"background: rgba(15,15,15,0.5);\";\r\n" + //
             "  addBtn.innerHTML = \"Add new\";\r\n" + //
@@ -99,19 +99,20 @@ public class PluginGUI {
             "    localStorage.setItem(\"pl::plugins\", JSON.stringify(plugins));\r\n" + //
             "    gui();\r\n" + //
             "  });\r\n" + //
-            "  \r\n" + //
+            "\r\n" + //
             "  container.appendChild(table);\r\n" + //
             "  container.appendChild(addBtn);\r\n" + //
-            "  \r\n" + //
+            "\r\n" + //
             "  var notice = document.createElement(\"a\");\r\n" + //
             "  notice.innerHTML = \"Reload to use new plugins.\";\r\n" + //
             "  notice.href = \"javascript:void(0)\";\r\n" + //
-            "  notice.addEventListener(\"click\", ()=>{\r\n" + //
+            "  notice.addEventListener(\"click\", () => {\r\n" + //
             "    location.reload();\r\n" + //
             "  });\r\n" + //
-            "  notice.style = \"color: orange; display: block; margin-top: 2rem; width: 0; white-space: nowrap;\";\r\n" + //
+            "  notice.style =\r\n" + //
+            "    \"color: orange; display: block; margin-top: 2rem; width: 0; white-space: nowrap;\";\r\n" + //
             "  container.appendChild(notice);\r\n" + //
-            "  \r\n" + //
+            "\r\n" + //
             "  document.body.appendChild(container);\r\n" + //
             "}\r\n" + //
             "gui();")

@@ -23,13 +23,13 @@ function gui() {
   var closeButton = document.createElement("a");
   closeButton.style = `margin-left: 2rem; color: red; text-decoration: none;`;
   closeButton.href = "javascript:void(0)";
-  closeButton.addEventListener("click", ()=>{
+  closeButton.addEventListener("click", () => {
     document.querySelector("#eaglerpl_gui").remove();
   });
   closeButton.innerHTML = "[X]";
   title.appendChild(closeButton);
   container.appendChild(title);
-  
+
   var table = document.createElement("table");
   var headerRow = document.createElement("tr");
   headerRow.style = "background: rgb(50,50,50);";
@@ -40,7 +40,7 @@ function gui() {
   statusBox.innerHTML = "Status";
   headerRow.appendChild(statusBox);
   table.appendChild(headerRow);
-  
+
   plugins.forEach((url) => {
     var row = document.createElement("tr");
     var urlBox = document.createElement("td");
@@ -82,7 +82,7 @@ function gui() {
     row.appendChild(statusBox);
     table.appendChild(row);
   });
-  
+
   var addBtn = document.createElement("button");
   addBtn.style = "background: rgba(15,15,15,0.5);";
   addBtn.innerHTML = "Add new";
@@ -94,19 +94,20 @@ function gui() {
     localStorage.setItem("pl::plugins", JSON.stringify(plugins));
     gui();
   });
-  
+
   container.appendChild(table);
   container.appendChild(addBtn);
-  
+
   var notice = document.createElement("a");
   notice.innerHTML = "Reload to use new plugins.";
   notice.href = "javascript:void(0)";
-  notice.addEventListener("click", ()=>{
+  notice.addEventListener("click", () => {
     location.reload();
   });
-  notice.style = "color: orange; display: block; margin-top: 2rem; width: 0; white-space: nowrap;";
+  notice.style =
+    "color: orange; display: block; margin-top: 2rem; width: 0; white-space: nowrap;";
   container.appendChild(notice);
-  
+
   document.body.appendChild(container);
 }
 gui();
