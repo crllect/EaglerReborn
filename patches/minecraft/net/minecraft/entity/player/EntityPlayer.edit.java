@@ -28,7 +28,12 @@
 
 > DELETE  7  @  7 : 8
 
-> CHANGE  20 : 21  @  20 : 21
+> INSERT  19 : 21  @  19
+
++ import net.zxmushroom63.plugins.BaseData;
++ import net.zxmushroom63.plugins.PluginData;
+
+> CHANGE  1 : 2  @  1 : 2
 
 ~ public abstract class EntityPlayer extends EntityLivingBase implements ICommandSender {
 
@@ -36,7 +41,65 @@
 
 ~ 		this.inventoryContainer = new ContainerPlayer(this.inventory, false, this);
 
-> DELETE  49  @  49 : 53
+> INSERT  22 : 77  @  22
+
++ 	@Override
++ 	public void loadPluginData(BaseData data) {
++ 		super.loadPluginData(data);
++ 		cameraYaw = data.getFloat("cameraYaw");
++ 		chasingPosX = data.getDouble("chasingPosX");
++ 		chasingPosY = data.getDouble("chasingPosY");
++ 		chasingPosZ = data.getDouble("chasingPosZ");
++ 		experience = data.getFloat("experience");
++ 		experienceLevel = data.getInt("experienceLevel");
++ 		experienceTotal = data.getInt("experienceTotal");
++ 		if (fishEntity != null) {
++ 			fishEntity.loadPluginData(data.getBaseData("fishEntity"));
++ 		}
++ 		flyToggleTimer = data.getInt("flyToggleTimer");
++ 		hasReducedDebug = data.getBoolean("hasReducedDebug");
++ 		lastXPSound = data.getInt("lastXPSound");
++ 		sleepTimer = data.getInt("sleepTimer");
++ 		sleeping = data.getBoolean("sleeping");
++ 		spawnForced = data.getBoolean("spawnForced");
++ 		speedInAir = data.getFloat("speedInAir");
++ 		speedOnGround = data.getFloat("speedOnGround");
++ 		xpCooldown = data.getInt("xpCooldown");
++ 		xpSeed = data.getInt("xpSeed");
++ 	}
++ 
++ 	@Override
++ 	public PluginData makePluginData() {
++ 		PluginData data = super.makePluginData();
++ 		data.set("cameraYaw", cameraYaw);
++ 		data.set("chasingPosX", chasingPosX);
++ 		data.set("chasingPosY", chasingPosY);
++ 		data.set("chasingPosZ", chasingPosZ);
++ 		data.set("experience", experience);
++ 		data.set("experienceLevel", experienceLevel);
++ 		data.set("experienceTotal", experienceTotal);
++ 		if (fishEntity != null) {
++ 			data.set("fishEntity", fishEntity.makePluginData());
++ 		}
++ 		data.set("flyToggleTimer", flyToggleTimer);
++ 		data.set("hasReducedDebug", hasReducedDebug);
++ 		data.set("itemInUseCount", itemInUseCount);
++ 		data.set("lastXPSound", lastXPSound);
++ 		data.set("sleepTimer", sleepTimer);
++ 		data.set("sleeping", sleeping);
++ 		data.set("spawnForced", spawnForced);
++ 		data.set("speedInAir", speedInAir);
++ 		data.set("speedOnGround", speedOnGround);
++ 		data.set("xpCooldown", xpCooldown);
++ 		data.set("xpSeed", xpSeed);
++ 
++ 		// Todo: add functions
++ 
++ 		return data;
++ 	}
++ 
+
+> DELETE  27  @  27 : 31
 
 > CHANGE  19 : 20  @  19 : 22
 

@@ -67,3 +67,13 @@ make sure to set it to "blank repl"
 - only SRV records are accepted
 - cannot add a port to the address of the server(for example example.com:25565 is not allowed)
 
+
+
+### Installing Plugins
+[How to install plugins](https://eaglerreborn.github.io/guide/InstallingPlugins.html)
+
+### Plugin API Documentation
+
+[PluginAPI.md](https://eaglerreborn.github.io/guide/plugindocs)
+
+=======
