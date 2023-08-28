@@ -191,6 +191,9 @@ public abstract class BaseData implements JSObject {
     @JSBody(params = { "key", "value" }, script = "this[key]=value;")
     public native void set(String key, BaseData[] value);
 
+    @JSBody(params = { "key" }, script = "this[key]=null;")
+    public native void setNull(String key);
+
     @JSBody(params = { "key", "value" }, script = "this[key]=value;")
     public native void setCallbackVoid(String key, VoidCallback value);
 

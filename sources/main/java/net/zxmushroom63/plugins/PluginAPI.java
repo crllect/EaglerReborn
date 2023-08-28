@@ -18,6 +18,7 @@ public class PluginAPI {
     private Minecraft mc;
     public ArrayList<String> requiredList;
     public static final Logger logger = LogManager.getLogger();
+    public static String version = "a0.2";
 
     @JSBody(params = { "version" }, script = "var PluginAPI = {};\r\n" + //
             "PluginAPI.events = {};\r\n" + //
@@ -133,7 +134,7 @@ public class PluginAPI {
         this.mc = mcIn;
         requiredList = new ArrayList<String>();
         requiredList.add("player");
-        init("a0.1");
+        init(version);
         newEvent("sendchatmessage");
         newEvent("key");
         newEvent("update");
