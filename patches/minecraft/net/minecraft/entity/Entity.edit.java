@@ -366,7 +366,7 @@
 + 	 * of handleWaterMovement() returning true)
 + 	 */
 
-> INSERT  4 : 343  @  4
+> INSERT  4 : 363  @  4
 
 + 	public void loadPluginData(BaseData data) {
 + 		posX = data.getDouble("x");
@@ -643,7 +643,7 @@
 + 		data.setCallbackDoubleWithDataArg("getDistance", (BaseData params) -> {
 + 			return getDistance(params.getDouble("x"), params.getDouble("y"), params.getDouble("z"));
 + 		});
-+ 		data.setCallbackDoubleWithDataArg("getDistance", (BaseData params) -> {
++ 		data.setCallbackDoubleWithDataArg("getDistanceSq", (BaseData params) -> {
 + 			return getDistanceSq(params.getDouble("x"), params.getDouble("y"), params.getDouble("z"));
 + 		});
 + 		data.setCallbackDouble("getMountedYOffset", () -> {
@@ -670,16 +670,18 @@
 + 		data.setCallbackString("getName", () -> {
 + 			return getName();
 + 		});
-+ 		// Doesn't work, so I commented it out.
-+ 		// data.setCallbackObjectArr("getParts", () -> {
-+ 		// //Hopefully no infinite call stack!
-+ 		// Entity[] entityArr = getParts();
-+ 		// PluginData[] arr = new PluginData[entityArr.length];
-+ 		// for (int i = 0; i < entityArr.length; i++) {
-+ 		// arr[i] = entityArr[i].makePluginData();
-+ 		// }
-+ 		// return arr;
-+ 		// });
++ 		data.setCallbackObjectArr("getParts", () -> {
++ 			Entity[] entityArr = getParts();
++ 			PluginData[] arr = new PluginData[entityArr.length];
++ 			for (int i = 0; i < entityArr.length; i++) {
++ 				if (entityArr[i] != null) {
++ 					arr[i] = entityArr[i].makePluginData();
++ 				} else {
++ 					arr[i] = new PluginData();
++ 				}
++ 			}
++ 			return arr;
++ 		});
 + 		data.setCallbackInt("getPortalCooldown", () -> {
 + 			return getPortalCooldown();
 + 		});
@@ -694,6 +696,24 @@
 + 		});
 + 		data.setCallbackDouble("getYOffset", () -> {
 + 			return getYOffset();
++ 		});
++ 		data.setCallbackString("getClassName", () -> {
++ 			return getClass().getSimpleName();
++ 		});
++ 		data.setCallbackObject("getPositionVector", () -> {
++ 			return getPositionVector().makePluginData();
++ 		});
++ 		data.setCallbackObjectWithDataArg("getPositionEyes", (BaseData params) -> {
++ 			return getPositionEyes(params.getFloat("partialTicks")).makePluginData();
++ 		});
++ 		data.setCallbackObjectWithDataArg("getLook", (BaseData params) -> {
++ 			return getLook(params.getFloat("partialTicks")).makePluginData();
++ 		});
++ 		data.setCallbackObject("getLookVec", () -> {
++ 			return getLookVec().makePluginData();
++ 		});
++ 		data.setCallbackObjectWithDataArg("getVectorForRotation", (BaseData params) -> {
++ 			return getVectorForRotation(params.getFloat("yaw"), params.getFloat("pitch")).makePluginData();
 + 		});
 + 
 + 		return data;
