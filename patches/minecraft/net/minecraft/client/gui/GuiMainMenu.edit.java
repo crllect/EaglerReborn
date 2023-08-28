@@ -211,18 +211,12 @@
 
 > DELETE  24  @  24 : 26
 
-> CHANGE  7 : 11  @  7 : 8
+> CHANGE  7 : 9  @  7 : 12
 
 ~ 		if (this.isDefault || (double) this.updateCounter < 1.0E-4D) {
 ~ 			this.drawTexturedModalRect(k + 0, b0 + 0, 0, 0, 155, 44);
-~ 			this.drawTexturedModalRect(k + 155, b0 + 0, 0, 45, 155, 44);
-~ 		} else {
 
-> CHANGE  4 : 5  @  4 : 8
-
-~ 			this.drawTexturedModalRect(k + 154, b0 + 0, 0, 45, 155, 44);
-
-> INSERT  2 : 15  @  2
+> INSERT  6 : 19  @  6
 
 + 		boolean isForkLabel = ((this.openGLWarning1 != null && this.openGLWarning1.length() > 0)
 + 				|| (this.openGLWarning2 != null && this.openGLWarning2.length() > 0));
