@@ -229,7 +229,7 @@ public class PlatformApplication {
 		Window newWin = Window.current().open("", "_blank", "top=" + y + ",left=" + x + ",width=" + w + ",height=" + h + ",menubar=0,status=0,titlebar=0,toolbar=0");
 		
 		newWin.focus();
-		documentWrite(newWin.getDocument(), "<html><head><title>EaglercraftX 1.8 Credits</title></head><body><pre>" + text + "</pre></body></html>");
+		documentWrite(newWin.getDocument(), "<html><head><title>Eagler Reborn Credits</title></head><body><pre>" + text + "</pre></body></html>");
 	}
 
 }
