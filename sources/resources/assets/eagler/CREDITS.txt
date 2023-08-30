@@ -5,8 +5,14 @@ Eagler Reborn Developers
 OtterDev/OtterCodes101:
  
  - Creator and lead developer of Eagler Reborn
- - Wrote built-in relay system
+ - coded built-in relay system
+
+
+ZXMushroom63:
  
+ - Wrote the plugin system and API
+ - Added a skip button for the start screen!!!!!!!!!!! Wow!
+
 
 
  EaglercraftX Developers
@@ -28,14 +34,6 @@ OtterDev/OtterCodes101:
   - Added screen recording
   - Added seamless fullscreen
   - Created the replit
-
-EaglerPL - Plugin System
-~~~~~~~~~~~~~~~~~~~~~~~~
- ZXMushroom63:
- 
-  - Added the event and globals API for the plugin system.
-  - Added a skip button for the start screen!!!!!!!!!!! Wow!
-
 
 
 

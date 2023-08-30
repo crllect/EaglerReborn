@@ -9,7 +9,11 @@
 
 > DELETE  4  @  4 : 5
 
-> CHANGE  111 : 112  @  111 : 112
+> CHANGE  31 : 32  @  31 : 32
+
+~ Open source!
+
+> CHANGE  79 : 80  @  79 : 80
 
 ~ 1% sugar!
 

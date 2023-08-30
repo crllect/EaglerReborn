@@ -11,3 +11,4 @@ MinecraftSrc.zip
 src/*
 temp/*
 pullrequest/*
+.vscode/
