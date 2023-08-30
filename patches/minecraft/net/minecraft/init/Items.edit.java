@@ -5,9 +5,20 @@
 # Version: 1.0
 # Author: lax1dude
 
-> DELETE  2  @  2 : 3
+> CHANGE  2 : 4  @  2 : 3
 
-> CHANGE  13 : 200  @  13 : 200
+~ import java.util.Map;
+~ 
+
+> INSERT  10 : 11  @  10
+
++ import java.util.Map;
+
+> INSERT  1 : 2  @  1
+
++ import net.zxmushroom63.plugins.PluginData;
+
+> CHANGE  2 : 189  @  2 : 189
 
 ~ 	public static Item iron_shovel;
 ~ 	public static Item iron_pickaxe;
@@ -197,8 +208,19 @@
 ~ 	public static Item prismarine_crystals;
 ~ 	public static Item banner;
 
-> CHANGE  5 : 6  @  5 : 6
+> CHANGE  5 : 17  @  5 : 6
 
+~ 	public static PluginData makePluginData() {
+~ 		PluginData data = new PluginData();
+~ 		Map<ResourceLocation, Item> itemMap = Item.itemRegistry.registryObjects;
+~ 		for (Map.Entry<ResourceLocation, Item> entry : itemMap.entrySet()) {
+~ 			if (entry.getKey().resourceName != null && entry.getValue() != null) {
+~ 				data.set(entry.getKey().resourceName, entry.getValue().makePluginData());
+~ 			}
+~ 		}
+~ 		return data;
+~ 	}
+~ 
 ~ 	static void doBootstrap() {
 
 > EOF

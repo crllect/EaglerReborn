@@ -1,36 +1,50 @@
 window.pluginLoader = function pluginLoader(pluginsArr) {
   function checkPluginsLoaded(totalLoaded, identifier) {
-    console.log("loadercheck :: " + totalLoaded);
+    console.log(
+      "Checking if Plugins are finished :: " +
+        totalLoaded +
+        "/" +
+        pluginsArr.length
+    );
     if (totalLoaded >= pluginsArr.length) {
       clearInterval(identifier);
       window.pluginGracePeriod = false;
-      console.log("loadercheck :: done!");
+      console.log(
+        "Checking if Plugins are finished :: All plugins loaded! Grace period off."
+      );
     }
   }
   window.pluginGracePeriod = true;
   var totalLoaded = 0;
   var loaderCheckInterval = null;
-  var i;
   pluginsArr.forEach((c) => {
     let currentPlugin = c;
-    console.log("ILOADER: DOING " + currentPlugin);
+    console.log("EaglerPL: Starting " + currentPlugin);
     fetch(currentPlugin)
       .then((x) => {
         x.blob().then((y) => {
           var reader = new FileReader();
           reader.onloadend = () => {
-            console.log("ILOADER: METHOD1LOADSTART " + currentPlugin);
+            console.log(
+              "EaglerPL: Loading " + currentPlugin + " via method A."
+            );
             var script = document.createElement("script");
             script.src = reader.result;
             script.setAttribute("data-plugin", currentPlugin);
             script.setAttribute("data-isplugin", true);
             script.onerror = () => {
-              console.log("ILOADER: METHOD1ERR " + currentPlugin);
+              console.log(
+                "EaglerPL: Failed to load " + currentPlugin + " via method A!"
+              );
               script.remove();
               totalLoaded++;
             };
             script.onload = () => {
-              console.log("ILOADER: METHOD1LOAD " + currentPlugin);
+              console.log(
+                "EaglerPL: Successfully loaded " +
+                  currentPlugin +
+                  " via method A."
+              );
               totalLoaded++;
             };
             document.body.appendChild(script);
@@ -40,30 +54,37 @@ window.pluginLoader = function pluginLoader(pluginsArr) {
       })
       .catch((err) => {
         try {
-          console.log("ILOADER: METHOD2LOADSTART " + currentPlugin);
+          console.log("EaglerPL: Loading " + currentPlugin + " via method B.");
           var script = document.createElement("script");
           script.src = currentPlugin;
           script.setAttribute("data-plugin", currentPlugin);
           script.setAttribute("data-isplugin", true);
           script.onerror = () => {
-            console.log("ILOADER: METHOD2ERR " + currentPlugin);
+            console.log(
+              "EaglerPL: Failed to load " + currentPlugin + " via method B!"
+            );
             script.remove();
             totalLoaded++;
           };
           script.onload = () => {
-            console.log("ILOADER: METHOD2LOAD " + currentPlugin);
+            console.log(
+              "EaglerPL: Successfully loaded " +
+                currentPlugin +
+                " via method B."
+            );
             totalLoaded++;
           };
           document.body.appendChild(script);
         } catch (error) {
-          console.log("ILOADER: SAFEGUARD WAS HIT " + currentPlugin);
+          console.log(
+            "EaglePL: Oh no! The plugin " + currentPlugin + " failed to load!"
+          );
           totalLoaded++;
         }
       });
   });
-  console.log("Done loading plugins!");
   loaderCheckInterval = setInterval(() => {
     checkPluginsLoaded(totalLoaded, loaderCheckInterval);
   }, 500);
-  console.log("Began loading plugins...");
+  console.log("EaglerPL: Starting to load "+pluginsArr.length+" plugins...");
 };

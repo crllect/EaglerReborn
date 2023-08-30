@@ -12,7 +12,50 @@
 
 > DELETE  9  @  9 : 11
 
-> CHANGE  343 : 344  @  343 : 344
+> INSERT  19 : 21  @  19
+
++ import net.zxmushroom63.plugins.PluginData;
++ import net.zxmushroom63.plugins.BaseData;
+
+> INSERT  77 : 112  @  77
+
++ 	public void loadPluginData(BaseData data) {
++ 	}
++ 
++ 	public PluginData makePluginData() {
++ 		PluginData data = new PluginData();
++ 		data.set("unlocalizedName", unlocalizedName);
++ 		data.set("slipperiness", slipperiness);
++ 		data.set("blockParticleGravity", blockParticleGravity);
++ 
++ 		data.set("minX", minX);
++ 		data.set("minY", minY);
++ 		data.set("minZ", minZ);
++ 		data.set("maxX", maxX);
++ 		data.set("maxY", maxY);
++ 		data.set("maxZ", maxZ);
++ 
++ 		data.set("blockMaterial", blockMaterial.makePluginData());
++ 
++ 		data.set("enableStats", enableStats);
++ 		data.set("needsRandomTick", needsRandomTick);
++ 		data.set("isBlockContainer", isBlockContainer);
++ 		data.set("useNeighborBrightness", useNeighborBrightness);
++ 		data.set("translucent", translucent);
++ 		data.set("fullBlock", fullBlock);
++ 
++ 		data.set("lightOpacity", lightOpacity);
++ 		data.set("lightValue", lightValue);
++ 		data.set("blockHardness", blockHardness);
++ 		data.set("blockResistance", blockResistance);
++ 		data.setCallbackInt("getID", () -> {
++ 			return getIdFromBlock(this);
++ 		});
++ 		return data;
++ 	}
++ 
+
+> CHANGE  247 : 248  @  247 : 248
 
 ~ 	public void randomTick(World world, BlockPos blockpos, IBlockState iblockstate, EaglercraftRandom random) {
 

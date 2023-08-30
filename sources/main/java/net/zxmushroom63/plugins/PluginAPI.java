@@ -6,6 +6,10 @@ import org.teavm.jso.JSObject;
 import net.lax1dude.eaglercraft.v1_8.log4j.LogManager;
 import net.lax1dude.eaglercraft.v1_8.log4j.Logger;
 import net.minecraft.client.Minecraft;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.block.material.Material;
 
 import java.lang.Class;
 import java.lang.String;
@@ -18,7 +22,7 @@ public class PluginAPI {
     private Minecraft mc;
     public ArrayList<String> requiredList;
     public static final Logger logger = LogManager.getLogger();
-    public static String version = "a0.2";
+    public static String version = "a0.3";
 
     @JSBody(params = { "version" }, script = "var PluginAPI = {};\r\n" + //
             "PluginAPI.events = {};\r\n" + //
@@ -143,6 +147,11 @@ public class PluginAPI {
 
         globalsFunctor(this);
         globalsRequireFunctor(this);
+
+        setGlobal("enchantments", Enchantment.makePluginDataStatic());
+        setGlobal("blocks", Blocks.makePluginData());
+        setGlobal("items", Items.makePluginData());
+        setGlobal("materials", Material.makePluginDataStatic());
     }
 
     static void globalsFunctor(PluginAPI pluginAPI) {
