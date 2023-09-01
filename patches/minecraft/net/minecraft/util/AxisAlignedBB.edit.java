@@ -10,7 +10,7 @@
 ~ import net.zxmushroom63.plugins.BaseData;
 ~ import net.zxmushroom63.plugins.PluginData;
 
-> INSERT  286 : 336  @  286
+> INSERT  286 : 338  @  286
 
 + 
 + 	public void loadPluginData(BaseData data) {
@@ -26,12 +26,14 @@
 + 
 + 	public PluginData makePluginData() {
 + 		PluginData data = new PluginData();
++ 
 + 		data.set("minX", minX);
 + 		data.set("minY", minY);
 + 		data.set("minZ", minZ);
 + 		data.set("maxX", maxX);
 + 		data.set("maxY", maxY);
 + 		data.set("maxZ", maxZ);
++ 
 + 		data.setCallbackObjectWithDataArg("addCoord", (BaseData params) -> {
 + 			return addCoord(params.getDouble("x"), params.getDouble("y"), params.getDouble("z")).makePluginData();
 + 		});

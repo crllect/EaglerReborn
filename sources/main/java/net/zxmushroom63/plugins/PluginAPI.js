@@ -51,9 +51,7 @@ PluginAPI.updateComponent = function updateComponent(component) {
 };
 PluginAPI.require = function require(component) {
   if (
-    typeof component !== "string" ||
-    PluginAPI[component] === null ||
-    PluginAPI[component] === undefined
+    typeof component !== "string"
   ) {
     return;
   }
