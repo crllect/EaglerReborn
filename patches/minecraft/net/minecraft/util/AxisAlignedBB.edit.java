@@ -10,7 +10,7 @@
 ~ import net.zxmushroom63.plugins.BaseData;
 ~ import net.zxmushroom63.plugins.PluginData;
 
-> INSERT  286 : 338  @  286
+> INSERT  286 : 345  @  286
 
 + 
 + 	public void loadPluginData(BaseData data) {
@@ -37,27 +37,34 @@
 + 		data.setCallbackObjectWithDataArg("addCoord", (BaseData params) -> {
 + 			return addCoord(params.getDouble("x"), params.getDouble("y"), params.getDouble("z")).makePluginData();
 + 		});
++ 
 + 		data.setCallbackObjectWithDataArg("contract", (BaseData params) -> {
 + 			return contract(params.getDouble("x"), params.getDouble("y"), params.getDouble("z")).makePluginData();
 + 		});
++ 
 + 		data.setCallbackObjectWithDataArg("expand", (BaseData params) -> {
 + 			return expand(params.getDouble("x"), params.getDouble("y"), params.getDouble("z")).makePluginData();
 + 		});
++ 
 + 		data.setCallbackObjectWithDataArg("offset", (BaseData params) -> {
 + 			return offset(params.getDouble("x"), params.getDouble("y"), params.getDouble("z")).makePluginData();
 + 		});
++ 
 + 		data.setCallbackObjectWithDataArg("union", (BaseData axisAlignedBB) -> {
 + 			return union(AxisAlignedBB.fromPluginData(axisAlignedBB)).makePluginData();
 + 		});
++ 
 + 		data.setCallbackBooleanWithDataArg("intersectsWith", (BaseData axisAlignedBB) -> {
 + 			return intersectsWith(AxisAlignedBB.fromPluginData(axisAlignedBB));
 + 		});
++ 
 + 		data.setCallbackBooleanWithDataArg("isVecInside", (BaseData vec) -> {
 + 			return isVecInside(Vec3.fromPluginData(vec));
 + 		});
 + 		data.setCallbackDouble("getAverageEdgeLength", () -> {
 + 			return getAverageEdgeLength();
 + 		});
++ 
 + 		data.setCallbackString("toString", () -> {
 + 			return toString();
 + 		});
