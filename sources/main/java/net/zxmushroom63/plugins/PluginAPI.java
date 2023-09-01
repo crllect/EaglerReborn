@@ -22,7 +22,7 @@ public class PluginAPI {
     private Minecraft mc;
     public ArrayList<String> requiredList;
     public static final Logger logger = LogManager.getLogger();
-    public static String version = "a0.3";
+    public static String version = "a3.1";
 
     @JSBody(params = { "version" }, script = "var PluginAPI = {};\r\n" + //
             "PluginAPI.events = {};\r\n" + //
@@ -77,9 +77,7 @@ public class PluginAPI {
             "};\r\n" + //
             "PluginAPI.require = function require(component) {\r\n" + //
             "  if (\r\n" + //
-            "    typeof component !== \"string\" ||\r\n" + //
-            "    PluginAPI[component] === null ||\r\n" + //
-            "    PluginAPI[component] === undefined\r\n" + //
+            "    typeof component !== \"string\"\r\n" + //
             "  ) {\r\n" + //
             "    return;\r\n" + //
             "  }\r\n" + //
@@ -130,6 +128,7 @@ public class PluginAPI {
 
     public void onRequire(String global) {
         if(!requiredList.contains(global)){
+            logger.info("Required global: "+global);
             requiredList.add(global);
         }
     }
@@ -137,7 +136,7 @@ public class PluginAPI {
     public PluginAPI(Minecraft mcIn) {
         this.mc = mcIn;
         requiredList = new ArrayList<String>();
-        requiredList.add("player");
+
         init(version);
         newEvent("sendchatmessage");
         newEvent("key");

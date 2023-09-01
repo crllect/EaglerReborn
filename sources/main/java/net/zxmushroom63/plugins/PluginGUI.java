@@ -115,6 +115,19 @@ public class PluginGUI {
             "\r\n" + //
             "  document.body.appendChild(container);\r\n" + //
             "}\r\n" + //
-            "gui();")
+            "gui();\r\n" + //
+            "")
     public static native void displayGui();
+
+
+    @JSBody(params = {}, script = "if (document.querySelector(\"#eaglerpl_gui\")) {\r\n" + //
+            "    document.querySelector(\"#eaglerpl_gui\").remove();\r\n" + //
+            "  }")
+    public static native void closeGui();
+
+    @JSBody(params = {}, script = "return !!document.querySelector(\"#eaglerpl_gui\")")
+    public static native boolean isGuiOpen();
+
+    @JSBody(params = {}, script = "console.log('closed a screen')")
+    public static native void qlog();
 }

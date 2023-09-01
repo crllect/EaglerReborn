@@ -24,79 +24,78 @@ public class PluginLoader {
             "      );\r\n" + //
             "    }\r\n" + //
             "  }\r\n" + //
+            "  function methodB(currentPlugin) {\r\n" + //
+            "    try {\r\n" + //
+            "      console.log(\"EaglerPL: Loading \" + currentPlugin + \" via method B.\");\r\n" + //
+            "      var script = document.createElement(\"script\");\r\n" + //
+            "      script.src = currentPlugin;\r\n" + //
+            "      script.setAttribute(\"data-plugin\", currentPlugin);\r\n" + //
+            "      script.setAttribute(\"data-isplugin\", true);\r\n" + //
+            "      script.onerror = () => {\r\n" + //
+            "        console.log(\r\n" + //
+            "          \"EaglerPL: Failed to load \" + currentPlugin + \" via method B!\"\r\n" + //
+            "        );\r\n" + //
+            "        script.remove();\r\n" + //
+            "        totalLoaded++;\r\n" + //
+            "      };\r\n" + //
+            "      script.onload = () => {\r\n" + //
+            "        console.log(\r\n" + //
+            "          \"EaglerPL: Successfully loaded \" + currentPlugin + \" via method B.\"\r\n" + //
+            "        );\r\n" + //
+            "        totalLoaded++;\r\n" + //
+            "      };\r\n" + //
+            "      document.body.appendChild(script);\r\n" + //
+            "    } catch (error) {\r\n" + //
+            "      console.log(\r\n" + //
+            "        \"EaglerPL: Oh no! The plugin \" + currentPlugin + \" failed to load!\"\r\n" + //
+            "      );\r\n" + //
+            "      totalLoaded++;\r\n" + //
+            "    }\r\n" + //
+            "  }\r\n" + //
             "  window.pluginGracePeriod = true;\r\n" + //
             "  var totalLoaded = 0;\r\n" + //
             "  var loaderCheckInterval = null;\r\n" + //
             "  pluginsArr.forEach((c) => {\r\n" + //
             "    let currentPlugin = c;\r\n" + //
             "    console.log(\"EaglerPL: Starting \" + currentPlugin);\r\n" + //
-            "    fetch(currentPlugin)\r\n" + //
-            "      .then((x) => {\r\n" + //
-            "        x.blob().then((y) => {\r\n" + //
-            "          var reader = new FileReader();\r\n" + //
-            "          reader.onloadend = () => {\r\n" + //
-            "            console.log(\r\n" + //
-            "              \"EaglerPL: Loading \" + currentPlugin + \" via method A.\"\r\n" + //
-            "            );\r\n" + //
-            "            var script = document.createElement(\"script\");\r\n" + //
-            "            script.src = reader.result;\r\n" + //
-            "            script.setAttribute(\"data-plugin\", currentPlugin);\r\n" + //
-            "            script.setAttribute(\"data-isplugin\", true);\r\n" + //
-            "            script.onerror = () => {\r\n" + //
-            "              console.log(\r\n" + //
-            "                \"EaglerPL: Failed to load \" + currentPlugin + \" via method A!\"\r\n" + //
-            "              );\r\n" + //
-            "              script.remove();\r\n" + //
-            "              totalLoaded++;\r\n" + //
-            "            };\r\n" + //
-            "            script.onload = () => {\r\n" + //
-            "              console.log(\r\n" + //
-            "                \"EaglerPL: Successfully loaded \" +\r\n" + //
-            "                  currentPlugin +\r\n" + //
-            "                  \" via method A.\"\r\n" + //
-            "              );\r\n" + //
-            "              totalLoaded++;\r\n" + //
-            "            };\r\n" + //
-            "            document.body.appendChild(script);\r\n" + //
-            "          };\r\n" + //
-            "          reader.readAsDataURL(y);\r\n" + //
-            "        });\r\n" + //
-            "      })\r\n" + //
-            "      .catch((err) => {\r\n" + //
-            "        try {\r\n" + //
-            "          console.log(\"EaglerPL: Loading \" + currentPlugin + \" via method B.\");\r\n" + //
-            "          var script = document.createElement(\"script\");\r\n" + //
-            "          script.src = currentPlugin;\r\n" + //
-            "          script.setAttribute(\"data-plugin\", currentPlugin);\r\n" + //
-            "          script.setAttribute(\"data-isplugin\", true);\r\n" + //
-            "          script.onerror = () => {\r\n" + //
-            "            console.log(\r\n" + //
-            "              \"EaglerPL: Failed to load \" + currentPlugin + \" via method B!\"\r\n" + //
-            "            );\r\n" + //
-            "            script.remove();\r\n" + //
-            "            totalLoaded++;\r\n" + //
-            "          };\r\n" + //
-            "          script.onload = () => {\r\n" + //
-            "            console.log(\r\n" + //
-            "              \"EaglerPL: Successfully loaded \" +\r\n" + //
-            "                currentPlugin +\r\n" + //
-            "                \" via method B.\"\r\n" + //
-            "            );\r\n" + //
-            "            totalLoaded++;\r\n" + //
-            "          };\r\n" + //
-            "          document.body.appendChild(script);\r\n" + //
-            "        } catch (error) {\r\n" + //
+            "    try {\r\n" + //
+            "      var req = new XMLHttpRequest();\r\n" + //
+            "      req.open(\"GET\", currentPlugin);\r\n" + //
+            "      req.onload = function xhrLoadHandler() {\r\n" + //
+            "        console.log(\"EaglerPL: Loading \" + currentPlugin + \" via method A.\");\r\n" + //
+            "        var script = document.createElement(\"script\");\r\n" + //
+            "        script.src = \"data:text/javascript;base64,\" + btoa(req.responseText);\r\n" + //
+            "        script.setAttribute(\"data-plugin\", currentPlugin);\r\n" + //
+            "        script.setAttribute(\"data-isplugin\", true);\r\n" + //
+            "        script.onerror = () => {\r\n" + //
             "          console.log(\r\n" + //
-            "            \"EaglePL: Oh no! The plugin \" + currentPlugin + \" failed to load!\"\r\n" + //
+            "            \"EaglerPL: Failed to load \" + currentPlugin + \" via method A!\"\r\n" + //
+            "          );\r\n" + //
+            "          script.remove();\r\n" + //
+            "          totalLoaded++;\r\n" + //
+            "        };\r\n" + //
+            "        script.onload = () => {\r\n" + //
+            "          console.log(\r\n" + //
+            "            \"EaglerPL: Successfully loaded \" + currentPlugin + \" via method A.\"\r\n" + //
             "          );\r\n" + //
             "          totalLoaded++;\r\n" + //
-            "        }\r\n" + //
-            "      });\r\n" + //
+            "        };\r\n" + //
+            "        document.body.appendChild(script);\r\n" + //
+            "      };\r\n" + //
+            "      req.onerror = function xhrErrorHandler() {\r\n" + //
+            "        methodB(currentPlugin);\r\n" + //
+            "      };\r\n" + //
+            "      req.send();\r\n" + //
+            "    } catch (error) {\r\n" + //
+            "      methodB(currentPlugin);\r\n" + //
+            "    }\r\n" + //
             "  });\r\n" + //
             "  loaderCheckInterval = setInterval(() => {\r\n" + //
             "    checkPluginsLoaded(totalLoaded, loaderCheckInterval);\r\n" + //
             "  }, 500);\r\n" + //
-            "  console.log(\"EaglerPL: Starting to load \"+pluginsArr.length+\" plugins...\");\r\n" + //
+            "  console.log(\r\n" + //
+            "    \"EaglerPL: Starting to load \" + pluginsArr.length + \" plugins...\"\r\n" + //
+            "  );\r\n" + //
             "};\r\n" + //
             "")
     public static native void loadLoader();
