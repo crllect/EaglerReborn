@@ -1,3 +1,19 @@
+Eagler Reborn Developers
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+OtterDev/OtterCodes101:
+ 
+ - Creator and lead developer of Eagler Reborn
+ - coded built-in relay system
+
+
+ZXMushroom63:
+ 
+ - Wrote the plugin system and API
+ - Added a skip button for the start screen!!!!!!!!!!! Wow!
+
+
 
  EaglercraftX Developers
  ~~~~~~~~~~~~~~~~~~~~~~~
@@ -20,8 +36,25 @@
   - Created the replit
 
 
- Code used within EaglercraftX
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ Code used within Eagler Reborn
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+ Project Name: VIAaaS
+ Project Author: ViaVersion
+ Project URL: https://viaversion.github.io/VIAaaS
+ 
+ Used For: Relay System
+ 
+ *
+ * Licensed under the GNU Affero General Public License v3.0.
+ * Permissions of this strongest copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights. When a modified version is used to provide a service over a network, the complete source code of the modified version must be made available.
+ 
+ 
  
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
@@ -646,7 +679,3 @@
  * THE SOFTWARE.
  
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
- Make sure you also update the copy of this file in "sources/resources/assets/eagler/CREDITS"
- 
- The content of both files should match, but not include this notice in the resources one
