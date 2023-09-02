@@ -366,7 +366,7 @@
 + 	 * of handleWaterMovement() returning true)
 + 	 */
 
-> INSERT  4 : 363  @  4
+> INSERT  4 : 367  @  4
 
 + 	public void loadPluginData(BaseData data) {
 + 		posX = data.getDouble("x");
@@ -426,6 +426,10 @@
 + 		data.set("isOutsideBorder", isOutsideBorder);
 + 		data.set("entityCollisionReduction", entityCollisionReduction);
 + 		data.set("ticksExisted", ticksExisted);
++ 
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
++ 		});
 + 
 + 		data.setCallbackBoolean("isBurning", () -> {
 + 			/**

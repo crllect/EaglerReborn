@@ -22,7 +22,62 @@
 
 > DELETE  13  @  13 : 17
 
-> CHANGE  185 : 186  @  185 : 186
+> INSERT  12 : 14  @  12
+
++ import net.zxmushroom63.plugins.BaseData;
++ import net.zxmushroom63.plugins.PluginData;
+
+> INSERT  18 : 63  @  18
+
++ 	public void loadPluginData(BaseData data) {
++ 		stackSize = data.getInt("amount");
++ 		animationsToGo = data.getInt("animationsToGo");
++ 		itemDamage = data.getInt("itemDamage");
++ 		if (itemFrame != null) {
++ 			itemFrame.loadPluginData(data.getBaseData("itemFrame"));
++ 		}
++ 		if (canDestroyCacheBlock != null) {
++ 			canDestroyCacheBlock.loadPluginData(data.getBaseData("canDestroyCacheBlock"));
++ 		}
++ 		if (canPlaceOnCacheBlock != null) {
++ 			canPlaceOnCacheBlock.loadPluginData(data.getBaseData("canPlaceOnCacheBlock"));
++ 		}
++ 		canDestroyCacheResult = data.getBoolean("canDestroyCacheResult");
++ 		canPlaceOnCacheResult = data.getBoolean("canPlaceOnCacheResult");
++ 	}
++ 
++ 	public static ItemStack fromPluginData(BaseData data) {
++ 		return new ItemStack(Item.getItemById(data.getInt("itemId")), data.getInt("amount"), data.getInt("itemDamage"));
++ 	}
++ 
++ 	public PluginData makePluginData() {
++ 		PluginData data = new PluginData();
++ 		data.set("amount", stackSize);
++ 		data.set("animationsToGo", animationsToGo);
++ 		data.set("itemId", item.getIdFromItem(item));
++ 		data.set("itemDamage", itemDamage);
++ 		if (itemFrame != null) {
++ 			data.set("itemFrame", itemFrame.makePluginData());
++ 		}
++ 		if (canDestroyCacheBlock != null) {
++ 			data.set("canDestroyCacheBlock", canDestroyCacheBlock.makePluginData());
++ 		}
++ 		data.set("canDestroyCacheResult", canDestroyCacheResult);
++ 		if (canPlaceOnCacheBlock != null) {
++ 			data.set("canPlaceOnCacheBlock", canPlaceOnCacheBlock.makePluginData());
++ 		}
++ 		data.set("canPlaceOnCacheResult", canPlaceOnCacheResult);
++ 
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
++ 		});
++ 		return data;
++ 	}
++ 
+
+> DELETE  27  @  27 : 28
+
+> CHANGE  127 : 128  @  127 : 128
 
 ~ 	public boolean attemptDamageItem(int amount, EaglercraftRandom rand) {
 

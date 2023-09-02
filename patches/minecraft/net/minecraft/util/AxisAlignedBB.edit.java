@@ -10,13 +10,25 @@
 ~ import net.zxmushroom63.plugins.BaseData;
 ~ import net.zxmushroom63.plugins.PluginData;
 
-> INSERT  286 : 345  @  286
+> CHANGE  2 : 8  @  2 : 8
+
+~ 	public double minX;
+~ 	public double minY;
+~ 	public double minZ;
+~ 	public double maxX;
+~ 	public double maxY;
+~ 	public double maxZ;
+
+> INSERT  278 : 344  @  278
 
 + 
 + 	public void loadPluginData(BaseData data) {
-+ 		// Actually we cant load anything
-+ 		// _ _
-+ 		// \(o-o)/
++ 		minX = data.getDouble("minX");
++ 		minY = data.getDouble("minY");
++ 		minZ = data.getDouble("minZ");
++ 		maxX = data.getDouble("maxX");
++ 		maxY = data.getDouble("maxY");
++ 		maxZ = data.getDouble("maxZ");
 + 	}
 + 
 + 	public static AxisAlignedBB fromPluginData(BaseData data) {
@@ -33,6 +45,10 @@
 + 		data.set("maxX", maxX);
 + 		data.set("maxY", maxY);
 + 		data.set("maxZ", maxZ);
++ 
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
++ 		});
 + 
 + 		data.setCallbackObjectWithDataArg("addCoord", (BaseData params) -> {
 + 			return addCoord(params.getDouble("x"), params.getDouble("y"), params.getDouble("z")).makePluginData();

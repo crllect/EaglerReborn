@@ -41,7 +41,7 @@
 
 ~ 		this.inventoryContainer = new ContainerPlayer(this.inventory, false, this);
 
-> INSERT  22 : 77  @  22
+> INSERT  22 : 87  @  22
 
 + 	@Override
 + 	public void loadPluginData(BaseData data) {
@@ -66,6 +66,9 @@
 + 		speedOnGround = data.getFloat("speedOnGround");
 + 		xpCooldown = data.getInt("xpCooldown");
 + 		xpSeed = data.getInt("xpSeed");
++ 		if (itemInUse != null) {
++ 			itemInUse.loadPluginData(data.getBaseData("itemInUse"));
++ 		}
 + 	}
 + 
 + 	@Override
@@ -81,6 +84,9 @@
 + 		if (fishEntity != null) {
 + 			data.set("fishEntity", fishEntity.makePluginData());
 + 		}
++ 		if (itemInUse != null) {
++ 			data.set("itemInUse", itemInUse.makePluginData());
++ 		}
 + 		data.set("flyToggleTimer", flyToggleTimer);
 + 		data.set("hasReducedDebug", hasReducedDebug);
 + 		data.set("itemInUseCount", itemInUseCount);
@@ -92,6 +98,10 @@
 + 		data.set("speedOnGround", speedOnGround);
 + 		data.set("xpCooldown", xpCooldown);
 + 		data.set("xpSeed", xpSeed);
++ 
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
++ 		});
 + 
 + 		// Todo: add functions
 + 

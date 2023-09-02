@@ -14,17 +14,30 @@
 ~ import com.google.common.collect.Maps;
 ~ 
 
-> INSERT  7 : 8  @  7
+> INSERT  7 : 9  @  7
 
++ import net.zxmushroom63.plugins.BaseData;
 + import net.zxmushroom63.plugins.PluginData;
 
-> INSERT  63 : 82  @  63
+> CHANGE  43 : 44  @  43 : 44
 
+~ 	private int weight;
+
+> INSERT  19 : 46  @  19
+
++ 	public void loadPluginData(BaseData data) {
++ 		weight = data.getInt("weight");
++ 		name = data.getString("name");
++ 	}
++ 
 + 	public PluginData makePluginData() {
 + 		PluginData data = new PluginData();
 + 		data.set("enchID", effectId);
 + 		data.set("weight", weight);
 + 		data.set("name", name);
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
++ 		});
 + 		return data;
 + 	}
 + 

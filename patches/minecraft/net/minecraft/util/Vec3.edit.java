@@ -32,7 +32,13 @@
 +  * 
 +  */
 
-> INSERT  27 : 30  @  27
+> CHANGE  1 : 4  @  1 : 4
+
+~ 	public double xCoord;
+~ 	public double yCoord;
+~ 	public double zCoord;
+
+> INSERT  23 : 26  @  23
 
 + 	/**
 + 	 * + Returns a new vector with the result of the specified vector minus this.
@@ -97,13 +103,13 @@
 + 	 * line between this vector and the passed in vector, or null if not possible.
 + 	 */
 
-> INSERT  35 : 102  @  35
+> INSERT  35 : 105  @  35
 
 + 
 + 	public void loadPluginData(BaseData data) {
-+ 		// Actually we cant load anything
-+ 		// _ _
-+ 		// \(o-o)/
++ 		xCoord = data.getDouble("x");
++ 		yCoord = data.getDouble("y");
++ 		zCoord = data.getDouble("z");
 + 	}
 + 
 + 	public static Vec3 fromPluginData(BaseData data) {
@@ -115,6 +121,9 @@
 + 		data.set("x", xCoord);
 + 		data.set("y", yCoord);
 + 		data.set("z", zCoord);
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
++ 		});
 + 		data.setCallbackVoidWithDataArg("subtractReverse", (BaseData vec3) -> {
 + 			subtractReverse(Vec3.fromPluginData(vec3));
 + 		});

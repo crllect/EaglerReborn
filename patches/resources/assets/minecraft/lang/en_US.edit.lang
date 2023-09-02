@@ -82,7 +82,11 @@
 + eaglercraft.auth.continue=Join Server
 + 
 
-> CHANGE  468 : 469  @  468 : 469
+> INSERT  347 : 348  @  347
+
++ options.particles.disabled=Disabled
+
+> CHANGE  121 : 122  @  121 : 122
 
 ~ resourcePack.openFolder=Open resource pack
 
