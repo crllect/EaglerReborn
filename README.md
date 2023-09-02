@@ -75,6 +75,6 @@ make sure to set it to "blank repl"
 
 ### Plugin API Documentation
 
-[PluginAPI.md](https://eaglerreborn.github.io/guide/plugindocs)
+[PluginAPI.md](https://eaglerreborn.github.io/plugindocs)
 
 =======
