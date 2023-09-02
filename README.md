@@ -77,4 +77,3 @@ make sure to set it to "blank repl"
 
 [PluginAPI.md](https://eaglerreborn.github.io/plugindocs)
 
-=======
