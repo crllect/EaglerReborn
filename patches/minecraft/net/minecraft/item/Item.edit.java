@@ -33,7 +33,7 @@
 
 ~ 	protected static EaglercraftRandom itemRand = new EaglercraftRandom();
 
-> INSERT  20 : 58  @  20
+> INSERT  20 : 62  @  20
 
 + 	public void loadPluginData(BaseData data) {
 + 		maxStackSize = data.getInt("maxStackSize");
@@ -51,6 +51,10 @@
 + 		data.set("bFull3D", bFull3D);
 + 		data.set("maxDamage", maxDamage);
 + 		data.set("maxStackSize", maxStackSize);
++ 
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
++ 		});
 + 
 + 		data.setCallbackInt("getID", () -> {
 + 			return getIdFromItem(this);

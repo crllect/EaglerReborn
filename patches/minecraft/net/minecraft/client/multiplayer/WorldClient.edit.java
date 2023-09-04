@@ -17,7 +17,13 @@
 
 > DELETE  5  @  5 : 6
 
-> CHANGE  211 : 212  @  211 : 212
+> INSERT  210 : 213  @  210
+
++ 		if (mc.gameSettings.particleSetting == 3) {
++ 			return;
++ 		}
+
+> CHANGE  1 : 2  @  1 : 2
 
 ~ 		EaglercraftRandom random = new EaglercraftRandom();
 

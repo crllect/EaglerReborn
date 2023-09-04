@@ -5,13 +5,24 @@
 # Version: 1.0
 # Author: lax1dude
 
-> INSERT  2 : 4  @  2
+> INSERT  2 : 5  @  2
 
++ import net.zxmushroom63.plugins.BaseData;
 + import net.zxmushroom63.plugins.PluginData;
 + 
 
-> INSERT  51 : 75  @  51
+> CHANGE  38 : 40  @  38 : 40
 
+~ 	public int colorValue;
+~ 	public int colorIndex;
+
+> INSERT  11 : 44  @  11
+
++ 	public void loadPluginData(BaseData data) {
++ 		colorIndex = data.getInt("colorIndex");
++ 		colorValue = data.getInt("colorValue");
++ 	}
++ 
 + 	public PluginData makePluginData() {
 + 		PluginData data = new PluginData();
 + 		data.set("colorIndex", colorIndex);
@@ -32,6 +43,10 @@
 + 		rgb[1] = gg;
 + 		rgb[2] = bb;
 + 		data.set("rgb", rgb);
++ 
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
++ 		});
 + 
 + 		return data;
 + 	}

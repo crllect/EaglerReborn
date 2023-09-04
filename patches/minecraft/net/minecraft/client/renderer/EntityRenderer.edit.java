@@ -242,7 +242,11 @@
 
 ~ 			GlStateManager.gluPerspective(this.getFOVModifier(partialTicks, true),
 
-> CHANGE  87 : 88  @  87 : 88
+> CHANGE  26 : 27  @  26 : 27
+
+~ 			} else if (this.mc.gameSettings.particleSetting == 2 || this.mc.gameSettings.particleSetting == 3) {
+
+> CHANGE  60 : 61  @  60 : 61
 
 ~ 			EaglercraftGPU.glNormal3f(0.0F, 1.0F, 0.0F);
 

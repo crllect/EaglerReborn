@@ -44,7 +44,11 @@
 
 > DELETE  1  @  1 : 9
 
-> CHANGE  23 : 26  @  23 : 26
+> CHANGE  3 : 4  @  3 : 4
+
+~ 			"options.particles.minimal", "options.particles.disabled" };
+
+> CHANGE  19 : 22  @  19 : 22
 
 ~ 	public int clouds = 1;
 ~ 	public boolean fancyGraphics = false;
@@ -117,7 +121,11 @@
 
 > DELETE  4  @  4 : 5
 
-> INSERT  45 : 47  @  45
+> CHANGE  22 : 23  @  22 : 23
+
+~ 			this.particleSetting = (this.particleSetting + parInt1) % 4;
+
+> INSERT  22 : 24  @  22
 
 + 			this.mc.loadingScreen.eaglerShow(I18n.format("resourcePack.load.refreshing"),
 + 					I18n.format("resourcePack.load.pleaseWait"));

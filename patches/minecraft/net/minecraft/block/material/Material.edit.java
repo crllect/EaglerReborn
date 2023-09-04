@@ -5,11 +5,12 @@
 # Version: 1.0
 # Author: lax1dude
 
-> CHANGE  2 : 3  @  2 : 7
+> CHANGE  2 : 4  @  2 : 7
 
+~ import net.zxmushroom63.plugins.BaseData;
 ~ import net.zxmushroom63.plugins.PluginData;
 
-> INSERT  56 : 156  @  56
+> INSERT  56 : 172  @  56
 
 + 	public static PluginData makePluginDataStatic() {
 + 		PluginData data = new PluginData();
@@ -51,6 +52,17 @@
 + 		return data;
 + 	}
 + 
++ 	public void loadPluginData(BaseData data) {
++ 		canBurn = data.getBoolean("canBurn");
++ 		replaceable = data.getBoolean("replaceable");
++ 		requiresNoTool = data.getBoolean("requiresNoTool");
++ 		isTranslucent = data.getBoolean("isTranslucent");
++ 		isAdventureModeExempt = data.getBoolean("isAdventureModeExempt");
++ 		materialMapColor.loadPluginData(data.getBaseData("materialMapColor"));
++ 
++ 		mobilityFlag = data.getInt("mobilityFlag");
++ 	}
++ 
 + 	public PluginData makePluginData() {
 + 		PluginData data = new PluginData();
 + 		data.set("canBurn", canBurn);
@@ -60,6 +72,11 @@
 + 		data.set("mobilityFlag", mobilityFlag);
 + 		data.set("isAdventureModeExempt", isAdventureModeExempt);
 + 		data.set("materialMapColor", materialMapColor.makePluginData());
++ 
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
++ 		});
++ 
 + 		data.setCallbackBoolean("isLiquid", () -> {
 + 			return isLiquid();
 + 		});

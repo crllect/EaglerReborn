@@ -24,7 +24,7 @@
 ~ import net.zxmushroom63.plugins.BaseData;
 ~ import net.zxmushroom63.plugins.PluginData;
 
-> INSERT  100 : 151  @  100
+> INSERT  100 : 155  @  100
 
 + 	@Override
 + 	public void loadPluginData(BaseData data) {
@@ -74,6 +74,10 @@
 + 		data.set("fishX", fishX);
 + 		data.set("fishY", fishY);
 + 		data.set("fishZ", fishZ);
++ 
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
++ 		});
 + 		return data;
 + 	}
 + 

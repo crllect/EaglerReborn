@@ -17,9 +17,32 @@
 + import net.zxmushroom63.plugins.PluginData;
 + import net.zxmushroom63.plugins.BaseData;
 
-> INSERT  77 : 112  @  77
+> INSERT  77 : 138  @  77
 
 + 	public void loadPluginData(BaseData data) {
++ 		unlocalizedName = data.getString("unlocalizedName");
++ 		slipperiness = data.getFloat("slipperiness");
++ 		blockParticleGravity = data.getFloat("blockParticleGravity");
++ 
++ 		minX = data.getDouble("minX");
++ 		minY = data.getDouble("minY");
++ 		minZ = data.getDouble("minY");
++ 		maxX = data.getDouble("maxX");
++ 		maxY = data.getDouble("maxY");
++ 		maxZ = data.getDouble("maxZ");
++ 
++ 		enableStats = data.getBoolean("enableStats");
++ 		needsRandomTick = data.getBoolean("needsRandomTick");
++ 		isBlockContainer = data.getBoolean("isBlockContainer");
++ 		useNeighborBrightness = data.getBoolean("useNeighborBrightness");
++ 		translucent = data.getBoolean("translucent");
++ 		fullBlock = data.getBoolean("fullBlock");
++ 
++ 		lightOpacity = data.getInt("lightOpacity");
++ 		lightValue = data.getInt("lightValue");
++ 
++ 		blockHardness = data.getFloat("blockHardness");
++ 		blockResistance = data.getFloat("blockResistance");
 + 	}
 + 
 + 	public PluginData makePluginData() {
@@ -50,6 +73,9 @@
 + 		data.set("blockResistance", blockResistance);
 + 		data.setCallbackInt("getID", () -> {
 + 			return getIdFromBlock(this);
++ 		});
++ 		data.setCallbackVoid("reload", () -> {
++ 			loadPluginData(data);
 + 		});
 + 		return data;
 + 	}
