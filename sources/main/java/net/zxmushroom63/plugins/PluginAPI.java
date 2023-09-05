@@ -151,6 +151,7 @@ public class PluginAPI {
         setGlobal("blocks", Blocks.makePluginData());
         setGlobal("items", Items.makePluginData());
         setGlobal("materials", Material.makePluginDataStatic());
+        PluginGUI.loadFont();
     }
 
     static void globalsFunctor(PluginAPI pluginAPI) {

@@ -49,7 +49,11 @@
 
 ~ 	protected EaglercraftRandom rand;
 
-> CHANGE  27 : 28  @  27 : 29
+> INSERT  23 : 24  @  23
+
++ 
+
+> CHANGE  4 : 5  @  4 : 6
 
 ~ 	protected EaglercraftUUID entityUniqueID;
 
