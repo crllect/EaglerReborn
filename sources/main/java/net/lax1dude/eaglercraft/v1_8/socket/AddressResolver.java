@@ -27,9 +27,9 @@ public class AddressResolver {
 		String lc = input.toLowerCase();
 		if(!lc.startsWith("ws://") && !lc.startsWith("wss://")) {
 			if(EagRuntime.requireSSL()) {
-				input = MainClass.relayURL + "/" + input + "._vAUTO._oA";
+				input = MainClass.relayURL + "/" + input + "._v1_8_x._of";
 			}else {
-				input = MainClass.relayURL + "/" + input + "._vAUTO._oA";
+				input = MainClass.relayURL + "/" + input + "._v1_8_x._of";
 			}
 		}
 		return input;
