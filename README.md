@@ -1,6 +1,6 @@
 ![image](https://github.com/EaglerReborn/EaglerReborn/assets/134523836/e59bba1d-266b-4313-aa8f-18a7d39887b7)
 ---
-### Eaglercraft client with Java support.
+### Eaglercraft client with Java support and a plugin API.
 ![title screen](https://github.com/EaglerReborn/EaglerReborn/assets/134523836/65852fd2-7667-43f8-8cd8-68dfc73ed686)
 
 
