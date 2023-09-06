@@ -22,7 +22,7 @@ public class PluginAPI {
     private Minecraft mc;
     public ArrayList<String> requiredList;
     public static final Logger logger = LogManager.getLogger();
-    public static String version = "a3.1";
+    public static String version = "a4.2";
 
     @JSBody(params = { "version" }, script = "var PluginAPI = {};\r\n" + //
             "PluginAPI.events = {};\r\n" + //
