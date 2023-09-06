@@ -24,6 +24,7 @@ public class PluginGUI {
                         "  container.id = \"eaglerpl_gui\";\r\n" + //
                         "  container.style = `width:100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 10; color: white; font-family: Minecraftia, sans-serif; overflow-y: scroll; overflow-x: hidden; background-image: url(data:image/webp;base64,UklGRhgCAABXRUJQVlA4TAwCAAAvn8AnAGfCqI0kR+3NC+P44zoA9440WEWS7OTNvAD8IwT/InCBgJyDq0iSLKWy97CACfxLQgDfz/mPo7vv1VHThPRyiQFCCGBIdUJKnPBH/OSLRPgLAS0eJMSPGFIEyTfPNrsN8A/z81ckxIeUAJI3EiVQ0wSEkCI1TQhAOC1PiQQAQmZzgwRqnl6OwKgOAkr/cA5P9/32PB/X+AJJtm2rdiLEXd+Luzx4HNzhBM/F+t+kOW4o30JE/yegYOJHjKoFNzGxx8AJDJzGgsdYqrbKAmUNz1Fe4x/sMLDgJspXTOyqts8KrmDgDH7CHqcx8ASnsUdZwx0sGNg+S/yDBTcwscNdvMUnOGBgYuAJJrbUPuAyvsL3uI6JexiYuIjn+BvlPT7AltqIs5hVA2UKu6o3OGJgj4HneILts4Jxz//wIY5Yqo74Dn/iGSYGDtg+O0IpeIIDvsErnMbEbXyOI0bVrNo+e4mPcBUHDLzEwBk8wKeYeIh1OpzG9llg4hwGTuM2dhj/7Te8w4LTOGD7bBplxILfcQsLJs7jOyyYOOAm/sHA9tlzjKpZ9TMe4T7+xcRnOIMd7mNgh+2zwEVMDLzEF1jwGlcx8AhHDDzAO7zFltqAC3iEpxiYVXucxB+4iFJwqNo+SwxcwoJ7OIGBHZ7gFwx8i9NV855baheY+Bh7/IWBm5goOlSdxg7bZw==); background-color: rgb(80,80,80); background-blend-mode: multiply; background-size: 64px;`;\r\n" + //
                         "  var title = document.createElement(\"h1\");\r\n" + //
+                        "  title.style = \"text-shadow: 0px 0px 4px;\";\r\n" + //
                         "  title.innerHTML = \"Plugin Manager\";\r\n" + //
                         "  var closeButton = document.createElement(\"a\");\r\n" + //
                         "  closeButton.style = `margin-left: 2rem; color: red;`;\r\n" + //
@@ -34,6 +35,11 @@ public class PluginGUI {
                         "  closeButton.innerHTML = \"[X]\";\r\n" + //
                         "  title.appendChild(closeButton);\r\n" + //
                         "  container.appendChild(title);\r\n" + //
+                        "\r\n" + //
+                        "  var warningPoster = document.createElement(\"p\");\r\n" + //
+                        "  warningPoster.style = \"font-size: 0.8rem; color: orangered;\"\r\n" + //
+                        "  warningPoster.innerHTML = \"Warning: Installing plugins gives them full control over the game. Be cautious when installing them.\"\r\n" + //
+                        "  container.appendChild(warningPoster);\r\n" + //
                         "\r\n" + //
                         "  var table = document.createElement(\"table\");\r\n" + //
                         "  table.style = \"table-layout: fixed; width: 100%\";\r\n" + //
@@ -102,10 +108,14 @@ public class PluginGUI {
                         "    \"background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: 'Minecraftia', sans-serif; text-decoration: underline; border: 0; margin-right: 1rem;  font-size: 1rem;\";\r\n" + //
                         "  addBtn.innerHTML = \"Add new\";\r\n" + //
                         "  addBtn.addEventListener(\"click\", () => {\r\n" + //
+                        "    var newPlugin = window.prompt(\"URL of plugin: \", \"http://example.com/example.js\");\r\n" + //
                         "    plugins.push(\r\n" + //
-                        "      window.prompt(\"URL of plugin: \", \"http://example.com/example.js\")\r\n" + //
+                        "      newPlugin\r\n" + //
                         "    );\r\n" + //
                         "    localStorage.setItem(\"pl::plugins\", JSON.stringify(plugins));\r\n" + //
+                        "    if(window.pluginLoader){\r\n" + //
+                        "      pluginLoader([newPlugin]);\r\n" + //
+                        "    }\r\n" + //
                         "    gui();\r\n" + //
                         "  });\r\n" + //
                         "\r\n" + //
@@ -120,8 +130,12 @@ public class PluginGUI {
                         "      if (filePicker.files[0]) {\r\n" + //
                         "        var reader = new FileReader();\r\n" + //
                         "        reader.addEventListener(\"load\", function onPluginRead() {\r\n" + //
-                        "          plugins.push(reader.result.replace(\";base64\", `;fs=${encodeURIComponent(filePicker.files[0].name) || \"unknown\"};base64`));\r\n" + //
+                        "          var newPlugin = reader.result.replace(\";base64\", `;fs=${encodeURIComponent(filePicker.files[0].name) || \"unknown\"};base64`);\r\n" + //
+                        "          plugins.push(newPlugin);\r\n" + //
                         "          localStorage.setItem(\"pl::plugins\", JSON.stringify(plugins));\r\n" + //
+                        "          if(window.pluginLoader){\r\n" + //
+                        "            pluginLoader([newPlugin]);\r\n" + //
+                        "          }\r\n" + //
                         "          gui();\r\n" + //
                         "        });\r\n" + //
                         "        reader.readAsDataURL(filePicker.files[0]);\r\n" + //
@@ -135,13 +149,14 @@ public class PluginGUI {
                         "  container.appendChild(uploadBtn);\r\n" + //
                         "\r\n" + //
                         "  var notice = document.createElement(\"a\");\r\n" + //
-                        "  notice.innerHTML = \"Reload to use new plugins.\";\r\n" + //
+                        "  notice.innerHTML = \"Refresh GUI\";\r\n" + //
                         "  notice.href = \"javascript:void(0)\";\r\n" + //
                         "  notice.addEventListener(\"click\", function reloadListener() {\r\n" + //
-                        "    location.reload();\r\n" + //
+                        "    setTimeout(gui, 500);\r\n" + //
+                        "    this.remove();\r\n" + //
                         "  });\r\n" + //
                         "  notice.style =\r\n" + //
-                        "    \"color: orange; display: block; margin-top: 2rem; width: 0; white-space: nowrap;\";\r\n" + //
+                        "    \"color: yellow; display: block; margin-top: 2rem; width: 0; white-space: nowrap;\";\r\n" + //
                         "  container.appendChild(notice);\r\n" + //
                         "\r\n" + //
                         "  document.body.appendChild(container);\r\n" + //

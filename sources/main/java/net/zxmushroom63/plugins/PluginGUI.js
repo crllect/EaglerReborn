@@ -19,6 +19,7 @@ function gui() {
   container.id = "eaglerpl_gui";
   container.style = `width:100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 10; color: white; font-family: Minecraftia, sans-serif; overflow-y: scroll; overflow-x: hidden; background-image: url(data:image/webp;base64,UklGRhgCAABXRUJQVlA4TAwCAAAvn8AnAGfCqI0kR+3NC+P44zoA9440WEWS7OTNvAD8IwT/InCBgJyDq0iSLKWy97CACfxLQgDfz/mPo7vv1VHThPRyiQFCCGBIdUJKnPBH/OSLRPgLAS0eJMSPGFIEyTfPNrsN8A/z81ckxIeUAJI3EiVQ0wSEkCI1TQhAOC1PiQQAQmZzgwRqnl6OwKgOAkr/cA5P9/32PB/X+AJJtm2rdiLEXd+Luzx4HNzhBM/F+t+kOW4o30JE/yegYOJHjKoFNzGxx8AJDJzGgsdYqrbKAmUNz1Fe4x/sMLDgJspXTOyqts8KrmDgDH7CHqcx8ASnsUdZwx0sGNg+S/yDBTcwscNdvMUnOGBgYuAJJrbUPuAyvsL3uI6JexiYuIjn+BvlPT7AltqIs5hVA2UKu6o3OGJgj4HneILts4Jxz//wIY5Yqo74Dn/iGSYGDtg+O0IpeIIDvsErnMbEbXyOI0bVrNo+e4mPcBUHDLzEwBk8wKeYeIh1OpzG9llg4hwGTuM2dhj/7Te8w4LTOGD7bBplxILfcQsLJs7jOyyYOOAm/sHA9tlzjKpZ9TMe4T7+xcRnOIMd7mNgh+2zwEVMDLzEF1jwGlcx8AhHDDzAO7zFltqAC3iEpxiYVXucxB+4iFJwqNo+SwxcwoJ7OIGBHZ7gFwx8i9NV855baheY+Bh7/IWBm5goOlSdxg7bZw==); background-color: rgb(80,80,80); background-blend-mode: multiply; background-size: 64px;`;
   var title = document.createElement("h1");
+  title.style = "text-shadow: 0px 0px 4px;";
   title.innerHTML = "Plugin Manager";
   var closeButton = document.createElement("a");
   closeButton.style = `margin-left: 2rem; color: red;`;
@@ -29,6 +30,11 @@ function gui() {
   closeButton.innerHTML = "[X]";
   title.appendChild(closeButton);
   container.appendChild(title);
+
+  var warningPoster = document.createElement("p");
+  warningPoster.style = "font-size: 0.8rem; color: orangered;"
+  warningPoster.innerHTML = "Warning: Installing plugins gives them full control over the game. Be cautious when installing them."
+  container.appendChild(warningPoster);
 
   var table = document.createElement("table");
   table.style = "table-layout: fixed; width: 100%";
@@ -97,10 +103,14 @@ function gui() {
     "background: transparent; text-align: center; color: yellow; cursor: pointer; font-family: 'Minecraftia', sans-serif; text-decoration: underline; border: 0; margin-right: 1rem;  font-size: 1rem;";
   addBtn.innerHTML = "Add new";
   addBtn.addEventListener("click", () => {
+    var newPlugin = window.prompt("URL of plugin: ", "http://example.com/example.js");
     plugins.push(
-      window.prompt("URL of plugin: ", "http://example.com/example.js")
+      newPlugin
     );
     localStorage.setItem("pl::plugins", JSON.stringify(plugins));
+    if(window.pluginLoader){
+      pluginLoader([newPlugin]);
+    }
     gui();
   });
 
@@ -115,8 +125,12 @@ function gui() {
       if (filePicker.files[0]) {
         var reader = new FileReader();
         reader.addEventListener("load", function onPluginRead() {
-          plugins.push(reader.result.replace(";base64", `;fs=${encodeURIComponent(filePicker.files[0].name) || "unknown"};base64`));
+          var newPlugin = reader.result.replace(";base64", `;fs=${encodeURIComponent(filePicker.files[0].name) || "unknown"};base64`);
+          plugins.push(newPlugin);
           localStorage.setItem("pl::plugins", JSON.stringify(plugins));
+          if(window.pluginLoader){
+            pluginLoader([newPlugin]);
+          }
           gui();
         });
         reader.readAsDataURL(filePicker.files[0]);
@@ -130,13 +144,14 @@ function gui() {
   container.appendChild(uploadBtn);
 
   var notice = document.createElement("a");
-  notice.innerHTML = "Reload to use new plugins.";
+  notice.innerHTML = "Refresh GUI";
   notice.href = "javascript:void(0)";
   notice.addEventListener("click", function reloadListener() {
-    location.reload();
+    setTimeout(gui, 500);
+    this.remove();
   });
   notice.style =
-    "color: orange; display: block; margin-top: 2rem; width: 0; white-space: nowrap;";
+    "color: yellow; display: block; margin-top: 2rem; width: 0; white-space: nowrap;";
   container.appendChild(notice);
 
   document.body.appendChild(container);

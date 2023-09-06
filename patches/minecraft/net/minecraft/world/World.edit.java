@@ -254,8 +254,12 @@
 + 	 * + Gets the lowest height of the chunk where sunlight directly reaches
 + 	 */
 
-> INSERT  110 : 118  @  110
+> INSERT  110 : 122  @  110
 
++ 	public Block getBlock(BlockPos pos) {
++ 		return getBlockState(pos).getBlock();
++ 	}
++ 
 + 	/**
 + 	 * + Checks whether its daytime by seeing if the light subtracted from the
 + 	 * skylight is less than 4
