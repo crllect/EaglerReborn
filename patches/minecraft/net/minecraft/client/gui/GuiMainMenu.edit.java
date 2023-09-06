@@ -153,15 +153,12 @@
 
 ~ 			this.field_92019_w = this.field_92021_u + (line2 ? 24 : 11);
 
-> INSERT  6 : 7  @  6
+> CHANGE  6 : 11  @  6 : 9
 
-+ 		// testing
-
-> CHANGE  1 : 5  @  1 : 3
-
-~ 				.add(new GuiButton(1, this.width / 2 - 100, parInt1, I18n.format("menu.playdemo", new Object[0])));
+~ 		// this.buttonList
+~ 		// .add(new GuiButton(1, this.width / 2 - 100, parInt1,
+~ 		// I18n.format("menu.playdemo", new Object[0])));
 ~ 
-~ 		// idk what tf this is
 ~ 		this.buttonList.add(new GuiButton(2, this.width / 2 - 100, parInt1 + parInt2 * 0,
 
 > CHANGE  1 : 5  @  1 : 3
